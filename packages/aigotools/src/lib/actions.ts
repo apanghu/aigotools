@@ -12,6 +12,7 @@ import { Site, SiteDocument, SiteModel } from "@/models/site";
 import { Review, ReviewDocument, ReviewModel } from "@/models/review";
 import { UpvoteModel, UpvoteType } from "@/models/upvote";
 import { Category, CategoryDocument, CategoryModel } from "@/models/category";
+import { Blog, BlogDocument, BlogModel } from "@/models/blog";
 
 function siteToObject(site: SiteDocument) {
   const siteObj = site.toObject();
@@ -759,6 +760,97 @@ export async function getAllCategories() {
     return grouped.filter((c) => c.children.length);
   } catch (error) {
     console.log("Get all cateogry error", error);
+    throw error;
+  }
+}
+
+export interface BlogSearchForm {
+  page: number;
+  size: number;
+  search?: string;
+  parent?: string;
+  type?: "top" | "second";
+  keyword?: string;
+  category?: string;
+}
+
+export async function managerSearchBlogs(data: BlogSearchForm) {
+  try {
+    await assertIsManager();
+
+    await dbConnect();
+
+    const query: FilterQuery<Blog> = {};
+
+    if (data.search) {
+      query.name = { $regex: data.search, $options: "i" };
+    }
+    if (data.parent) {
+      query.parent = data.parent;
+    }
+    if (data.type === "top") {
+      query.parent = null;
+    } else if (data.type == "second" && !data.parent) {
+      query.parent = { $exists: true };
+    }
+
+    const [blogs, count] = await Promise.all([
+      BlogModel.find(query)
+        .sort({ updatedAt: -1 })
+        .skip((data.page - 1) * data.size)
+        .limit(data.size),
+      BlogModel.countDocuments(query),
+    ]);
+
+    return {
+      blogs: blogs.map(blogToObject),
+      count,
+      totalPage: Math.ceil(count / data.size),
+    };
+  } catch (error) {
+    console.log("Search blogs error", error);
+
+    throw error;
+  }
+}
+
+export async function saveBlog(blog: Blog) {
+  try {
+    await assertIsManager();
+    await dbConnect();
+
+    if (blog._id) {
+      blog.updatedAt = Date.now();
+      await BlogModel.findByIdAndUpdate(blog._id, { $set: blog });
+    } else {
+      await BlogModel.create(blog);
+    }
+  } catch (error) {
+    console.log("Dispatch site crawl error", error);
+    throw error;
+  }
+}
+
+function blogToObject(blog: BlogDocument) {
+  const blogObj = blog.toObject();
+
+  blogObj._id = blogObj._id.toString();
+
+  delete blogObj.__v;
+
+  if (blogObj.parent) {
+    blogObj.parent = blogObj.parent.toString();
+  }
+
+  return blogObj as Blog;
+}
+export async function deleteBlog(id: string) {
+  try {
+    await assertIsManager();
+    await dbConnect();
+    await BlogModel.findByIdAndDelete(id);
+  } catch (error) {
+    console.log("Dispatch site crawl error", error);
     throw error;
   }
 }

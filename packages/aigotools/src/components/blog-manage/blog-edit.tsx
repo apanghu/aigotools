@@ -11,25 +11,26 @@ import {
   Select,
   SelectItem,
   Switch,
+  DatePicker,
 } from "@nextui-org/react";
 import { useTranslations } from "next-intl";
 import { useCallback, useEffect, useState } from "react";
 import { toast } from "react-toastify";
 import { useQuery } from "@tanstack/react-query";
 
-import { managerSearchCategories, saveCategory } from "@/lib/actions";
-import { Category } from "@/models/category";
+import { managerSearchBlogs, saveBlog } from "@/lib/actions";
+import { Blog } from "@/models/blog";
 
-export default function CategoryEdit({
-  category,
+export default function BlogEdit({
+  blog,
   onClose,
 }: {
-  category?: Category;
+  blog?: Blog;
   onClose: () => void;
 }) {
   const { register, getValues, setValue, watch, reset, trigger, formState } =
-    useForm<Category>({
-      defaultValues: category,
+    useForm<Blog>({
+      defaultValues: blog,
     });
 
   const t = useTranslations("blogEdit");
@@ -41,9 +42,9 @@ export default function CategoryEdit({
   const [saving, setSaving] = useState(false);
 
   useEffect(() => {
-    reset(category);
-    setIsOpen(!!category);
-  }, [reset, category]);
+    reset(blog);
+    setIsOpen(!!blog);
+  }, [reset, blog]);
 
   const onSubmit = useCallback(async () => {
     if (saving) {
@@ -56,7 +57,7 @@ export default function CategoryEdit({
       setSaving(true);
       const values = getValues();
 
-      await saveCategory(values);
+      await saveBlog(values);
       onClose();
     } catch (error) {
       console.log(error);
@@ -66,16 +67,16 @@ export default function CategoryEdit({
     }
   }, [saving, trigger, getValues, t, onClose]);
 
-  const { data: allTopCategories } = useQuery({
-    queryKey: ["get-top-categories"],
+  const { data: allTopBlogs } = useQuery({
+    queryKey: ["get-top-blogs"],
     queryFn: async () => {
-      const res = await managerSearchCategories({
+      const res = await managerSearchBlogs({
         page: 1,
         size: 999,
         type: "top",
       });
 
-      return res.categories;
+      return res.blogs;
     },
     initialData: [],
   });
@@ -84,13 +85,13 @@ export default function CategoryEdit({
     <Modal isOpen={isOpen} onClose={() => setIsOpen(false)}>
       <ModalContent>
         <ModalHeader>
-          {category?._id ? t("updateTitle") : t("newTitle")}
+          {blog?._id ? t("updateTitle") : t("newTitle")}
         </ModalHeader>
         <ModalBody>
           <form className="overflow-auto space-y-4">
             <Input
               isRequired
-              label={t("categoryName")}
+              label={t("name")}
               size="sm"
               value={formValues.name}
               {...register("name", {
@@ -99,41 +100,35 @@ export default function CategoryEdit({
               color={formState.errors.name ? "danger" : "default"}
             />
             <Input
-              label={t("categoryIcon")}
+              label={t("icon")}
               size="sm"
               value={formValues.icon}
               {...register("icon")}
             />
-            {!!formValues.parent && (
-              <div className="flex items-center justify-between py-3 rounded-lg px-3 bg-primary-100">
-                <label className="text-sm"> {t("featured")}</label>
-                <Switch
-                  checked={formValues.featured}
-                  size="sm"
-                  {...register("featured")}
-                />
-              </div>
-            )}
             <Input
-              label={t("weight")}
+              label={t("content")}
               size="sm"
-              value={formValues.weight as unknown as any}
-              onValueChange={(value) => {
-                setValue("weight", parseInt(value, 10) || 0);
-              }}
+              value={formValues.content}
+              {...register("content")}
             />
-            <Select
-              label={t("parentCategory")}
-              selectedKeys={[formValues.parent] as any}
+            <Input
+              label={t("category")}
               size="sm"
-              onChange={(e) => setValue("parent", e.target.value)}
-            >
-              {allTopCategories.map((category) => {
-                return (
-                  <SelectItem key={category._id}>{category.name}</SelectItem>
-                );
-              })}
-            </Select>
+              value={formValues.category}
+              {...register("category")}
+            />
+            {/* <DatePicker
+              label={t("publishedAt")}
+              size="sm"
+              value={formValues.publishedAt}
+              {...register("publishedAt")}
+            /> */}
+            <Input
+              label={t("author")}
+              size="sm"
+              value={formValues.author}
+              {...register("author")}
+            />
           </form>
         </ModalBody>
         <ModalFooter>

@@ -1,23 +1,42 @@
 import mongoose from "mongoose";
-
-export interface Blog extends mongoose.Document {
-  userId: string;
-  title: string;
+import { MongoPlain } from "@/lib/types";
+export interface BlogDocument extends mongoose.Document {
+  name: string;
   content: string;
   createdAt: number;
   updatedAt: number;
+  publishedAt: number;
+  category: "";
+  views: 0;
+  featured: false;
+  author: string;
+  icon: string;
 }
 
+export type Blog = MongoPlain<BlogDocument>;
+
 const BlogSchema = new mongoose.Schema<Blog>({
-  userId: {
+  name: {
     type: String,
     required: true,
   },
-  title: {
+  views: {
+    type: Number,
+    required: false,
+  },
+  icon: {
     type: String,
-    required: true,
+    required: false,
   },
   content: {
+    type: String,
+    required: true,
+  },
+  category: {
+    type: String,
+    required: true,
+  },
+  author: {
     type: String,
     required: true,
   },
@@ -29,6 +48,11 @@ const BlogSchema = new mongoose.Schema<Blog>({
     type: Number,
     default: () => Date.now(),
   },
+  publishedAt: {
+    type: Number,
+    default: () => Date.now(),
+  },
+  featured: { type: Boolean, default: false },
 });
 
 export const BlogModel =

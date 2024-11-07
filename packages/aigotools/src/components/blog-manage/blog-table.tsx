@@ -21,26 +21,26 @@ import { debounce } from "lodash";
 import { Plus } from "lucide-react";
 import { useQuery } from "@tanstack/react-query";
 
-import CategoryEdit from "./blog-edit";
-import CategoryOperation from "./blog-operation";
+import BlogEdit from "./blog-edit";
+import BlogOperation from "./blog-operation";
 
-import { CategorySearchForm, managerSearchCategories } from "@/lib/actions";
+import { BlogSearchForm, managerSearchBlogs } from "@/lib/actions";
 import Loading from "@/components/common/loading";
 import EmptyImage from "@/components/search/empty-image";
-import { Category } from "@/models/category";
-import { createTemplateCategory } from "@/lib/create-template-category";
+import { Blog } from "@/models/blog";
+import { createTemplateBlog } from "@/lib/create-template-blog";
 
-export default function CategoryTable() {
+export default function BlogTable() {
   const t = useTranslations("blogManage");
   const [searchResult, setSearchResult] = useState({
-    categories: [] as Category[],
+    blogs: [] as Blog[],
     count: 0,
     totalPage: 0,
   });
-  const [category, setCategory] = useState<Category | undefined>(undefined);
+  const [blog, setBlog] = useState<Blog | undefined>(undefined);
 
   const [loading, setIsLoading] = useState(false);
-  const [searchParams, setSearchParams] = useState<CategorySearchForm>({
+  const [searchParams, setSearchParams] = useState<BlogSearchForm>({
     page: 1,
     size: 15,
   });
@@ -52,7 +52,7 @@ export default function CategoryTable() {
     try {
       setIsLoading(true);
 
-      const result = await managerSearchCategories(searchParams);
+      const result = await managerSearchBlogs(searchParams);
 
       setSearchResult(result);
     } catch (error) {
@@ -68,30 +68,30 @@ export default function CategoryTable() {
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [searchParams]);
 
-  const { data: allTopCategories } = useQuery({
-    queryKey: ["get-top-categories"],
+  const { data: allTopBlogs } = useQuery({
+    queryKey: ["get-top-blogs"],
     queryFn: async () => {
-      const res = await managerSearchCategories({
+      const res = await managerSearchBlogs({
         page: 1,
         size: 999,
         type: "top",
       });
 
-      return res.categories;
+      return res.blogs;
     },
     initialData: [],
   });
 
-  const topCategoryNameMap = useMemo(() => {
-    return allTopCategories.reduce((t, c) => {
+  const topBlogNameMap = useMemo(() => {
+    return allTopBlogs.reduce((t, c) => {
       return {
         ...t,
         [c._id]: c.name,
       };
     }, {} as Record<string, string>);
-  }, [allTopCategories]);
+  }, [allTopBlogs]);
 
-  console.log(topCategoryNameMap);
+  console.log(topBlogNameMap);
 
   return (
     <div className="mt-4 relative py-4">
@@ -102,46 +102,11 @@ export default function CategoryTable() {
         <Button
           size="sm"
           startContent={<Plus size={14} />}
-          onClick={() => setCategory(createTemplateCategory())}
+          onClick={() => setBlog(createTemplateBlog())}
         >
           {t("new")}
         </Button>
         <div className="flex-1" />
-        <Select
-          className="w-48"
-          placeholder={t("categoryLevel")}
-          size="sm"
-          onChange={(e) =>
-            setSearchParams({
-              ...searchParams,
-              type: e.target.value as any,
-              page: 1,
-            })
-          }
-        >
-          <SelectItem key="top">{t("topLevel")}</SelectItem>
-          <SelectItem key="second">{t("secondaryLevel")}</SelectItem>
-        </Select>
-        {searchParams.type === "second" && (
-          <Select
-            className="w-48"
-            placeholder={t("parentCategory")}
-            size="sm"
-            onChange={(e) =>
-              setSearchParams({
-                ...searchParams,
-                parent: e.target.value as any,
-                page: 1,
-              })
-            }
-          >
-            {allTopCategories.map((category) => {
-              return (
-                <SelectItem key={category._id}>{category.name}</SelectItem>
-              );
-            })}
-          </Select>
-        )}
         <Input
           className="w-96"
           placeholder={t("inputSearch")}
@@ -163,10 +128,12 @@ export default function CategoryTable() {
       <div className="mt-6 relative">
         <Table className="mt-6" shadow="sm">
           <TableHeader>
-            <TableColumn>{t("categoryName")}</TableColumn>
-            <TableColumn>{t("weight")}</TableColumn>
+            <TableColumn>{t("name")}</TableColumn>
+            <TableColumn>{t("content")}</TableColumn>
+            <TableColumn>{t("views")}</TableColumn>
+            <TableColumn>{t("publishedAt")}</TableColumn>
             <TableColumn>{t("featured")}</TableColumn>
-            <TableColumn>{t("parentCategory")}</TableColumn>
+            <TableColumn>{t("author")}</TableColumn>
             <TableColumn maxWidth={160}>{t("updatedAt")}</TableColumn>
             <TableColumn maxWidth={160}>{t("operation")}</TableColumn>
           </TableHeader>
@@ -177,32 +144,27 @@ export default function CategoryTable() {
               </div>
             }
           >
-            {searchResult.categories.map((category) => (
-              <TableRow key={category._id}>
+            {searchResult.blogs.map((blog) => (
+              <TableRow key={blog._id}>
                 <TableCell>
-                  {category.icon}
-                  {category.name}
+                  {blog.icon}
+                  {blog.name}
                 </TableCell>
-                <TableCell>{category.weight}</TableCell>
+                <TableCell>{blog.content}</TableCell>
+                <TableCell>{blog.views}</TableCell>
                 <TableCell>
-                  {category.parent
-                    ? category.featured
-                      ? "True"
-                      : "False"
-                    : "-"}
+                  {dayjs(blog.publishedAt).format("YYYY-MM-DD HH:mm:ss")}
                 </TableCell>
+                <TableCell>{blog.featured}</TableCell>
+                <TableCell>{blog.author}</TableCell>
                 <TableCell>
-                  {(category.parent && topCategoryNameMap[category.parent]) ||
-                    category.parent}
+                  {dayjs(blog.updatedAt).format("YYYY-MM-DD HH:mm:ss")}
                 </TableCell>
                 <TableCell>
-                  {dayjs(category.updatedAt).format("YYYY-MM-DD HH:mm:ss")}
-                </TableCell>
-                <TableCell>
-                  <CategoryOperation
-                    category={category}
+                  <BlogOperation
+                    blog={blog}
                     handleSearch={handleSearch}
-                    onEdit={() => setCategory(category)}
+                    onEdit={() => setBlog(blog)}
                   />
                 </TableCell>
               </TableRow>
@@ -235,10 +197,10 @@ export default function CategoryTable() {
           )}
         </div>
       </div>
-      <CategoryEdit
-        category={category}
+      <BlogEdit
+        blog={blog}
         onClose={() => {
-          setCategory(undefined);
+          setBlog(undefined);
           handleSearch();
         }}
       />

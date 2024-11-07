@@ -4,7 +4,7 @@ import DashboardTitle from "@/components/common/dashboard-title";
 import BlogTable from "@/components/blog-manage/blog-table";
 
 export default function SiteManage() {
-  const t = useTranslations("siteManage");
+  const t = useTranslations("blogManage");
 
   return (
     <div className="p-6 w-full">

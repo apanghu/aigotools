@@ -11,15 +11,15 @@ import { toast } from "react-toastify";
 import { Edit, Trash2 } from "lucide-react";
 
 import OperationIcon from "@/components/common/operation-icon";
-import { deleteCategory } from "@/lib/actions";
-import { Category } from "@/models/category";
+import { deleteBlog } from "@/lib/actions";
+import { Blog } from "@/models/blog";
 
-export default function CategoryOperation({
-  category,
+export default function BlogOperation({
+  blog,
   handleSearch,
   onEdit,
 }: {
-  category: Category;
+  blog: Blog;
   handleSearch: () => void;
   onEdit: () => void;
 }) {
@@ -33,7 +33,7 @@ export default function CategoryOperation({
     }
     try {
       setDeleting(true);
-      await deleteCategory(category._id);
+      await deleteBlog(blog._id);
 
       await handleSearch();
     } catch (error) {
@@ -42,7 +42,7 @@ export default function CategoryOperation({
     } finally {
       setDeleting(false);
     }
-  }, [category._id, deleting, handleSearch, t]);
+  }, [blog._id, deleting, handleSearch, t]);
 
   return (
     <Dropdown
