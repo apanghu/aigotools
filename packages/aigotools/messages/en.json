@@ -21,7 +21,8 @@
   "dashboard": {
     "siteManage": "Site Manage",
     "reviewManage": "Review Manage",
-    "categoryManage": "Category Manage"
+    "categoryManage": "Category Manage",
+    "blogManage": "Blog Manage"
   },
   "index": {
     "slogan": "Search 10000+ Useful AI Tools By What You Need",
@@ -230,5 +231,35 @@
         "title": "Can I suggest new text styles for the FREAKY TEXT GENERATOR?"
       }
     ]
+  },
+  "blogManage": {
+    "title": "Category Manage",
+    "new": "New",
+    "inputSearch": "Search category name",
+    "categoryName": "Category Name",
+    "categoryLevel": "Category Level",
+    "topLevel": "Top Level",
+    "secondaryLevel": "Secondary Level",
+    "parentCategory": "Parent Category",
+    "weight": "Weight",
+    "updatedAt": "Updated At",
+    "operation": "Operations",
+    "failSearch": "Search categories failed",
+    "failUpdate": "Update category failed",
+    "failDelete": "Delete category failed",
+    "featured": "Featured",
+    "edit": "Edit",
+    "delete": "Delete"
+  },
+  "blogEdit": {
+    "newTitle": "New",
+    "updateTitle": "Update",
+    "parentCategory": "Parent Category",
+    "categoryName": "Category Name",
+    "categoryIcon": "Category Icon",
+    "saveFailed": "Save category failed",
+    "save": "Save",
+    "featured": "Featured",
+    "weight": "Weight"
   }
 }

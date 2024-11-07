@@ -21,7 +21,8 @@
   "dashboard": {
     "siteManage": "站点管理",
     "reviewManage": "审核管理",
-    "categoryManage": "分类管理"
+    "categoryManage": "分类管理",
+    "blogManage": "文章管理"
   },
   "index": {
     "slogan": "发现 10000+ 有用的AI工具",
@@ -230,5 +231,35 @@
         "title": "我可以为FREAKY文本生成器建议新的文本样式吗？"
       }
     ]
+  },
+  "blogManage": {
+    "title": "Category Manage",
+    "new": "New",
+    "inputSearch": "Search category name",
+    "categoryName": "Category Name",
+    "categoryLevel": "Category Level",
+    "topLevel": "Top Level",
+    "secondaryLevel": "Secondary Level",
+    "parentCategory": "Parent Category",
+    "weight": "Weight",
+    "updatedAt": "Updated At",
+    "operation": "Operations",
+    "failSearch": "Search categories failed",
+    "failUpdate": "Update category failed",
+    "failDelete": "Delete category failed",
+    "featured": "Featured",
+    "edit": "Edit",
+    "delete": "Delete"
+  },
+  "blogEdit": {
+    "newTitle": "New",
+    "updateTitle": "Update",
+    "parentCategory": "Parent Category",
+    "categoryName": "Category Name",
+    "categoryIcon": "Category Icon",
+    "saveFailed": "Save category failed",
+    "save": "Save",
+    "featured": "Featured",
+    "weight": "Weight"
   }
 }

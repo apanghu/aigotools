@@ -29,6 +29,10 @@ export default function DashbpardLayout({
       title: t("categoryManage"),
       link: "/dashboard/category-manage",
     },
+    {
+      title: t("blogManage"),
+      link: "/dashboard/blog-manage",
+    },
   ];
 
   return (
@@ -50,7 +54,7 @@ export default function DashbpardLayout({
                   "block",
                   {
                     "!bg-primary !text-primary-foreground": active,
-                  },
+                  }
                 )}
                 href={menu.link}
               >
