@@ -27,6 +27,8 @@ import LanguageSwitcher from "./language-switcher";
 import { AppConfig } from "@/lib/config";
 import { Link } from "@/navigation";
 import LoadingModal from "@/components/common/LoadingModal";
+import MobileNav from "@/components/common/MobileNav";
+
 export default function Header({ className }: { className?: string }) {
   const t = useTranslations("header");
 
@@ -66,22 +68,15 @@ export default function Header({ className }: { className?: string }) {
         </Link> */}
         <ThemeSwitcher />
         <LanguageSwitcher />
+        <MobileNav />
         <SignedOut>
           <SignInButton forceRedirectUrl={forceRedirectUrl} mode="modal">
-            <Button
-              className="font-semibold"
-              color="primary"
-              size="sm"
-            >
+            <Button className="font-semibold" color="primary" size="sm">
               {t("submit")}
             </Button>
           </SignInButton>
           <SignInButton mode="modal">
-            <Button
-              className="font-semibold"
-              size="sm"
-              variant="bordered"
-            >
+            <Button className="font-semibold" size="sm" variant="bordered">
               {t("login")}
             </Button>
           </SignInButton>
