@@ -1,11 +1,11 @@
 export const Languages = [
   {
     lang: "cn",
-    label: "简体中文",
+    label: "🇨🇳 简体中文",
   },
   {
     lang: "en",
-    label: "English",
+    label: "🇺🇸 English",
   },
 ];
 

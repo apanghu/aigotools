@@ -191,5 +191,43 @@
   "categories": {
     "metadata": { "title": "Categories" },
     "loadFailed": "Load Failed"
+  },
+  "faq": {
+    "title": "Frequently Asked Questions",
+    "description": "Here are some of the most frequently asked questions.",
+    "faqs": [
+      {
+        "content": "The FREAKY TEXT GENERATOR is an online tool that allows you to create unique and visually striking text styles. Simply input your text, and it will be transformed into various freaky and creative designs.",
+        "title": "What is the FREAKY TEXT GENERATOR?"
+      },
+      {
+        "content": "Just type or paste your text into the input box on our website, and select the style you want. The tool will instantly generate the text in the chosen freaky style, which you can then copy and use as needed.",
+        "title": "How do I use the FREAKY TEXT GENERATOR?"
+      },
+      {
+        "content": "Yes, the FREAKY TEXT GENERATOR is completely free to use. There are no hidden charges or fees; you can create and download your text styles without any cost.",
+        "title": "Is the FREAKY TEXT GENERATOR free to use?"
+      },
+      {
+        "content": "No, the FREAKY TEXT GENERATOR is a web-based tool, so there's no need to download any software. You can access and use it directly from your web browser.",
+        "title": "Do I need to download any software to use the FREAKY TEXT GENERATOR?"
+      },
+      {
+        "content": "Yes, you can use the generated text for personal and commercial purposes. There are no restrictions on how you use the text styles created with the FREAKY TEXT GENERATOR.",
+        "title": "Can I use the generated text for commercial purposes?"
+      },
+      {
+        "content": "There might be some practical limitations based on the tool's design, but in general, the FREAKY TEXT GENERATOR can handle reasonably long texts. For very long texts, you may need to generate and style them in smaller segments.",
+        "title": "Are there any limitations on the text length?"
+      },
+      {
+        "content": "We continuously update the FREAKY TEXT GENERATOR with new and creative text styles. Check back regularly for the latest additions and keep your text looking fresh and unique!",
+        "title": "How often are new text styles added?"
+      },
+      {
+        "content": "Absolutely! We welcome suggestions and feedback. If you have ideas for new text styles, please contact us through our website's feedback form or social media channels.",
+        "title": "Can I suggest new text styles for the FREAKY TEXT GENERATOR?"
+      }
+    ]
   }
 }

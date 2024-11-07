@@ -1,4 +1,5 @@
 "use client";
+import { useState } from "react";
 import { useTranslations, useLocale } from "next-intl";
 import { Github, LogOut } from "lucide-react";
 import clsx from "clsx";
@@ -25,7 +26,7 @@ import LanguageSwitcher from "./language-switcher";
 
 import { AppConfig } from "@/lib/config";
 import { Link } from "@/navigation";
-
+import LoadingModal from "@/components/common/LoadingModal";
 export default function Header({ className }: { className?: string }) {
   const t = useTranslations("header");
 
@@ -42,6 +43,15 @@ export default function Header({ className }: { className?: string }) {
       ? null
       : `${window.location.origin}/${locale}/submit`;
 
+  const [isTransitioning, setIsTransitioning] = useState(false);
+
+  const checkPageAndLoading = () => {
+    setIsTransitioning(true);
+    setTimeout(() => {
+      setIsTransitioning(false);
+    }, 300); // 动画持续时间
+  };
+
   return (
     <Container
       className={clsx(
@@ -51,31 +61,43 @@ export default function Header({ className }: { className?: string }) {
     >
       <Logo />
       <div className="flex items-center gap-2 sm:gap-4">
-        <Link href={"https://github.com/someu/aigotools"} target="_blank">
+        {/* <Link href={"https://github.com/someu/aigotools"} target="_blank">
           <Github className="text-primary cursor-pointer" size={16} />
-        </Link>
-        <LanguageSwitcher />
+        </Link> */}
         <ThemeSwitcher />
+        <LanguageSwitcher />
         <SignedOut>
           <SignInButton forceRedirectUrl={forceRedirectUrl} mode="modal">
-            <Button className="font-semibold" color="primary" size="sm">
+            <Button
+              className="font-semibold"
+              color="primary"
+              size="sm"
+            >
               {t("submit")}
             </Button>
           </SignInButton>
           <SignInButton mode="modal">
-            <Button className="font-semibold" size="sm" variant="bordered">
+            <Button
+              className="font-semibold"
+              size="sm"
+              variant="bordered"
+            >
               {t("login")}
             </Button>
           </SignInButton>
         </SignedOut>
         <SignedIn>
-          <Link href={"/submit"}>
+          <Link href={"/submit"} onClick={() => checkPageAndLoading()}>
             <Button className="font-semibold" color="primary" size="sm">
               {t("submit")}
             </Button>
           </Link>
           {isManager && (
-            <Link href={"/dashboard"} target="_blank">
+            <Link
+              href={"/dashboard"}
+              target="_blank"
+              onClick={() => checkPageAndLoading()}
+            >
               <Button
                 className="font-semibold"
                 color="primary"
@@ -107,6 +129,7 @@ export default function Header({ className }: { className?: string }) {
           </Dropdown>
         </SignedIn>
       </div>
+      <LoadingModal showLoadingModal={isTransitioning} />
     </Container>
   );
 }
