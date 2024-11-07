@@ -14,18 +14,18 @@ export default function FAQ() {
   const faqData = t.raw("faqs"); // 使用 `t.raw` 来获取数组内容
   const locale = useLocale();
   return (
-    <section className=" text-zinc-900 py-8 sm:py-16">
+    <section className="text-zinc-900 py-8 sm:py-16">
       <div className="max-w-screen-xl mx-auto px-6 lg:px-16">
         <div className="mx-auto md:text-center">
-          <h2 className="mx-auto max-w-4xl font-display text-4xl font-bold tracking-normal text-slate-900 sm:text-6xl">
+          <h2 className="mx-auto max-w-4xl font-display text-4xl font-bold tracking-normal text-primary-800 sm:text-6xl">
             {t("title")}
           </h2>
-          <h3 className="mx-auto mt-6 max-w-xl text-lg text-slate-700 leading-7">
+          <h3 className="mx-auto mt-6 max-w-xl text-lg text-primary-600 leading-7">
             {t("description")}
           </h3>
         </div>
 
-        <div className=" mt-16 grid grid-cols-1 md:grid-cols-2 gap-4">
+        <div className="mt-10 grid grid-cols-1 md:grid-cols-2 gap-4">
           {faqData?.length ? (
             <>
               {faqData.map(
@@ -37,7 +37,7 @@ export default function FAQ() {
                   index: Key | null | undefined
                 ) => (
                   <div key={index}>
-                    <h3 className="text-lg font-medium text-zinc-800">
+                    <h3 className="text-lg font-medium text-primary-700">
                       {item.title}
                     </h3>
                     <p className="text-base text-zinc-500">{item.content}</p>

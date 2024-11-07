@@ -68,7 +68,6 @@ export default function Header({ className }: { className?: string }) {
         </Link> */}
         <ThemeSwitcher />
         <LanguageSwitcher />
-        <MobileNav />
         <SignedOut>
           <SignInButton forceRedirectUrl={forceRedirectUrl} mode="modal">
             <Button className="font-semibold" color="primary" size="sm">
@@ -123,6 +122,7 @@ export default function Header({ className }: { className?: string }) {
             </DropdownMenu>
           </Dropdown>
         </SignedIn>
+        <MobileNav />
       </div>
       <LoadingModal showLoadingModal={isTransitioning} />
     </Container>
