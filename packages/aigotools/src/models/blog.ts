@@ -56,4 +56,4 @@ const BlogSchema = new mongoose.Schema<Blog>({
 });
 
 export const BlogModel =
-  mongoose.models.Blog || mongoose.model<Blog>("Blog", BlogSchema, "Blogs");
+  mongoose.models.Blog || mongoose.model<Blog>("blogs", BlogSchema, "blogs");
