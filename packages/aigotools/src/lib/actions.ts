@@ -768,9 +768,6 @@ export interface BlogSearchForm {
   page: number;
   size: number;
   search?: string;
-  parent?: string;
-  type?: "top" | "second";
-  keyword?: string;
   category?: string;
 }
 
@@ -784,14 +781,6 @@ export async function managerSearchBlogs(data: BlogSearchForm) {
 
     if (data.search) {
       query.name = { $regex: data.search, $options: "i" };
-    }
-    if (data.parent) {
-      query.parent = data.parent;
-    }
-    if (data.type === "top") {
-      query.parent = null;
-    } else if (data.type == "second" && !data.parent) {
-      query.parent = { $exists: true };
     }
 
     const [blogs, count] = await Promise.all([
