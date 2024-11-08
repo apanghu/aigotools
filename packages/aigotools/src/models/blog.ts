@@ -6,11 +6,11 @@ export interface BlogDocument extends mongoose.Document {
   createdAt: number;
   updatedAt: number;
   publishedAt: number;
-  category: "";
+  slug: "";
   views: 0;
-  featured: false;
+  published: true;
   author: string;
-  icon: string;
+  image: string;
 }
 
 export type Blog = MongoPlain<BlogDocument>;
@@ -24,7 +24,7 @@ const BlogSchema = new mongoose.Schema<Blog>({
     type: Number,
     required: false,
   },
-  icon: {
+  image: {
     type: String,
     required: false,
   },
@@ -32,7 +32,7 @@ const BlogSchema = new mongoose.Schema<Blog>({
     type: String,
     required: true,
   },
-  category: {
+  slug: {
     type: String,
     required: true,
   },
@@ -52,7 +52,7 @@ const BlogSchema = new mongoose.Schema<Blog>({
     type: Number,
     default: () => Date.now(),
   },
-  featured: { type: Boolean, default: false },
+  published: { type: Boolean, default: true },
 });
 
 export const BlogModel =

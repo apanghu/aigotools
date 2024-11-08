@@ -7,11 +7,7 @@ import {
   ModalBody,
   ModalContent,
   ModalFooter,
-  ModalHeader,
-  Select,
-  SelectItem,
-  Switch,
-  DatePicker,
+  ModalHeader
 } from "@nextui-org/react";
 import { useTranslations } from "next-intl";
 import { ChangeEvent, useCallback, useEffect, useState } from "react";
@@ -23,7 +19,7 @@ import { Blog } from "@/models/blog";
 import MarkdownIt from "markdown-it";
 import MdEditor from "react-markdown-editor-lite";
 import "react-markdown-editor-lite/lib/index.css";
-
+import { uploadStringToMinio } from "@/lib/minio";
 export default function BlogEdit({
   blog,
   onClose,
@@ -51,9 +47,21 @@ export default function BlogEdit({
   // 初始化Markdown解析器
   const mdParser = new MarkdownIt(/* Markdown-it options */);
 
+  // useEffect(() => {
+  //   reset(blog);
+  //   setIsOpen(!!blog);
+  // }, [reset, blog]);
+
   useEffect(() => {
-    reset(blog);
-    setIsOpen(!!blog);
+    if (blog) {
+      reset(blog);
+      setContent(blog.content || ""); // 初始化为 blog.content 或空字符串
+      setIsOpen(true);
+    } else {
+      reset(blog);
+      setContent(""); // 清空内容
+      setIsOpen(false);
+    }
   }, [reset, blog]);
 
   const onSubmit = useCallback(async () => {
@@ -66,7 +74,7 @@ export default function BlogEdit({
       }
       setSaving(true);
       const values = getValues();
-
+      values.content = content; // 手动赋值为最新的 content
       await saveBlog(values);
       onClose();
     } catch (error) {
@@ -75,7 +83,7 @@ export default function BlogEdit({
     } finally {
       setSaving(false);
     }
-  }, [saving, trigger, getValues, t, onClose]);
+  }, [saving, trigger, getValues, t, onClose, content]);
 
   const { data: allTopBlogs } = useQuery({
     queryKey: ["get-top-blogs"],
@@ -90,63 +98,34 @@ export default function BlogEdit({
     initialData: [],
   });
 
-  // 处理封面图片上传
-  const handleImageUpload = (event: { target: { files: any[] } }) => {
-    const file = event.target.files[0];
-    if (file) {
-      // setIcon(URL.createObjectURL(file));
-    }
-  };
   // 处理Markdown编辑器内容变更
   const handleEditorChange = ({ html, text }: any) => {
-    console.log("handleEditorChange", html, text);
     setContent(text);
   };
 
   //https://zhuanlan.zhihu.com/p/662433315
-  // //上传图像的接口
-  // const uploadToAliOSS = (file: any, buffer: any) => {
-  //   const client = new OSS({
-  //     // accessKeyId、accessKeySecret进入网站点击个人头像申请accesskey管理，创建一个上传图像身份校验的key
-  //     accessKeyId: "",
-  //     accessKeySecret: "",
-  //     //bucket 这个是你bucket列表的bucket名称
-  //     bucket: "",
-  //     //您购买的的region地区，我买的是杭州的。具体看您买的哪里的，填写根据文档（https://github.com/ali-sdk/ali-oss/blob/5.x/README.md#data-regions）
-  //     region: "oss-cn-hangzhou",
-  //   });
-  //   // 上传图像
-
-  //   return client.put(
-  //     //oss图像存储的路径和具体的文件名，我采用的是图像上传的时间，这样可以很好的避免命名冲突。
-  //     // 可以在oss存储空间创建一个文件夹只放该项目的图像
-  //     `chromImage/${new Date().getTime()}.${file.type.split("/").pop()}`,
-  //     buffer,
-  //     {
-  //       "Content-Type": file.type,
-  //     }
-  //   );
-  // };
-
-  // const handleImageUpload = (file: any) => {
-  //   return new Promise((resolve) => {
-  //     const reader = new FileReader();
-  //     reader.onload = async (data: any) => {
-  //       //一定要把base64转化为buffer格式上传到阿里云，不然上传的图像是无法打开的
-  //       const base64 = data.target.result.replace(
-  //         /^data:image\/\w+;base64,/,
-  //         ""
-  //       );
-  //       var dataBuffer = new OSS.Buffer(base64, "base64");
-  //       //数据处理完发起put请求，完成图像上传。
-  //       const res = await uploadToAliOSS(file, dataBuffer);
-  //       //对返回的res.url图像存储的路径resolve出去，实现云上的图像的展示
-  //       resolve(res.url);
-  //     };
-  //     reader.readAsDataURL(file);
-  //   });
-  // };
-
+  const handleImageUpload = (file: any) => {
+    return new Promise((resolve) => {
+      const reader = new FileReader();
+      reader.onload = async (data: any) => {
+        //一定要把base64转化为string格式
+        const base64 = data.target.result.replace(
+          /^data:image\/\w+;base64,/,
+          ""
+        );
+        //数据处理完发起put请求，完成图像上传。
+        const res = await uploadStringToMinio(base64, file.type);
+        //对返回的res.url图像存储的路径resolve出去，实现云上的图像的展示
+        resolve(res);
+      };
+      reader.readAsDataURL(file);
+    });
+  };
+  const handleClose = () => {
+    setIsOpen(false);
+    setContent(""); // 清空 content 状态
+    onClose();
+  };
   return (
     <Modal isOpen={isOpen} onClose={() => setIsOpen(false)}>
       <ModalContent>
@@ -167,18 +146,18 @@ export default function BlogEdit({
             />
             <Input
               isRequired
-              label={t("category")}
+              label={t("slug")}
               size="sm"
-              value={formValues.category}
-              {...register("category", {
+              value={formValues.slug}
+              {...register("slug", {
                 required: true,
               })}
               color={formState.errors.name ? "danger" : "default"}
             />
             {/* <DatePicker
+              value={publishedAt || dateValue} // 初始值为当前日期
               label={t("publishedAt")}
-              size="sm"
-              {...register("publishedAt")}
+              onChange={handleChange}
             /> */}
             <Input
               isRequired
@@ -190,17 +169,34 @@ export default function BlogEdit({
               })}
               color={formState.errors.name ? "danger" : "default"}
             />
+            <Input
+              isRequired
+              label={t("image")}
+              size="sm"
+              value={formValues.image}
+              {...register("image", {
+                required: true,
+              })}
+              color={formState.errors.name ? "danger" : "default"}
+            />
             <MdEditor
               value={content}
               style={{ height: "50vh" }}
               renderHTML={(text) => mdParser.render(text)}
               onChange={handleEditorChange}
-              // onImageUpload={handleImageUpload}
+              onImageUpload={handleImageUpload}
               view={{ menu: true, md: true, html: true }} // 禁用实时预览，仅保留Markdown编辑
             />
           </form>
         </ModalBody>
         <ModalFooter>
+          <Button
+            color="default"
+            size="sm"
+            onClick={handleClose}
+          >
+            {t("cancel")}
+          </Button>
           <Button
             color="primary"
             isLoading={saving}

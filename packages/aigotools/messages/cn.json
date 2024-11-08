@@ -238,17 +238,18 @@
     "inputSearch": "Search blog name",
     "name": "title",
     "author": "author",
-    "category": "category",
+    "slug": "slug",
     "views": "views",
     "publishedAt": "publishedAt",
     "updatedAt": "updatedAt",
-    "featured": "featured",
+    "published": "published",
     "content": "content",
-    "icon": "icon",
+    "image": "image",
     "edit": "Edit",
     "delete": "Delete",
     "categoryFilter": "",
-    "operation": "Operations"
+    "operation": "Operations",
+    "failSearch": "Search Blog failed"
   },
   "blogEdit": {
     "newTitle": "New",
@@ -256,15 +257,16 @@
     "parentCategory": "Parent Category",
     "name": "title",
     "author": "author",
-    "category": "category",
+    "slug": "slug",
     "views": "views",
     "publishedAt": "publishedAt",
     "updatedAt": "updatedAt",
     "content": "content",
-    "icon": "icon",
+    "image": "image",
     "saveFailed": "Save blog failed",
     "save": "Save",
-    "featured": "Featured",
+    "cancel": "Cancel",
+    "published": "Published",
     "weight": "Weight"
   }
 }

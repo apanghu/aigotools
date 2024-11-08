@@ -73,8 +73,7 @@ export default function BlogTable() {
     queryFn: async () => {
       const res = await managerSearchBlogs({
         page: 1,
-        size: 999,
-        type: "top",
+        size: 999
       });
 
       return res.blogs;
@@ -147,7 +146,7 @@ export default function BlogTable() {
             {searchResult.blogs.map((blog) => (
               <TableRow key={blog._id}>
                 <TableCell>
-                  {blog.icon}
+                  {blog.image}
                   {blog.name}
                 </TableCell>
                 <TableCell>{blog.content}</TableCell>
@@ -155,7 +154,7 @@ export default function BlogTable() {
                 <TableCell>
                   {dayjs(blog.publishedAt).format("YYYY-MM-DD HH:mm:ss")}
                 </TableCell>
-                <TableCell>{blog.featured}</TableCell>
+                <TableCell>{blog.published}</TableCell>
                 <TableCell>{blog.author}</TableCell>
                 <TableCell>
                   {dayjs(blog.updatedAt).format("YYYY-MM-DD HH:mm:ss")}

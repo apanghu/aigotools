@@ -2,12 +2,13 @@ import { Blog } from "@/models/blog";
 
 export const createTemplateBlog = (blog: Partial<Blog> = {}) => {
   const newBlog: Omit<Blog, "_id"> = {
-    title: "",
+    name: "",
+    image: "",
     author: "",
     content: "",
-    category: "",
+    slug: "",
     views: 0,
-    featured: false,
+    published: true,
     createdAt: Date.now(),
     updatedAt: Date.now(),
     publishedAt: Date.now(),

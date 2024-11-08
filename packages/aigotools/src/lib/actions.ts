@@ -843,3 +843,43 @@ export async function deleteBlog(id: string) {
     throw error;
   }
 }
+
+export async function getAllBlogs() {
+  try {
+    await dbConnect();
+    const blogs = await BlogModel.find({}).sort({
+      weight: 1,
+      name: 1,
+    });
+
+    const plainCategories = blogs.map(blogToObject);
+
+    return plainCategories;
+  } catch (error) {
+    console.log("Get all blog error", error);
+    throw error;
+  }
+}
+
+// 根据名称查询博客的函数
+export async function getBlogByName(name: string) {
+  try {
+    // 连接到数据库
+    await dbConnect();
+
+    // 使用正则表达式进行不区分大小写的查询
+    const blog = await BlogModel.findOne({
+      name: { $regex: name, $options: "i" },
+    });
+
+    if (!blog) {
+      throw new Error(`Blog with name "${name}" not found`);
+    }
+
+    // 将 MongoDB 文档转换为普通对象
+    return blogToObject(blog);
+  } catch (error) {
+    console.log("Get blog by name error", error);
+    throw error; // 发生错误时抛出
+  }
+}

@@ -13,6 +13,41 @@ const minioClient = new Client({
   secretKey: AppConfig.minioSecretKey,
 });
 
+export async function uploadStringToMinio(
+  base64String: string,
+  contentType: string
+): Promise<string> {
+  const exists = await minioClient.bucketExists(AppConfig.minioBucket);
+
+  if (!exists) {
+    await minioClient.makeBucket(AppConfig.minioBucket);
+    console.log(`Create minio bucket: ${AppConfig.minioBucket}`);
+  }
+
+  const subfix = contentType.split("/").pop();
+  const fileKey = subfix ? `${v4()}.${subfix}` : v4();
+
+  try {
+    // 将 Base64 字符串转换为 Buffer
+    const buffer = Buffer.from(base64String, "base64");
+
+    await minioClient.putObject(
+      AppConfig.minioBucket,
+      fileKey,
+      buffer,
+      buffer.length,
+      {
+        "Content-Type": contentType,
+      }
+    );
+
+    return `${AppConfig.minioBase}/${AppConfig.minioBucket}/${fileKey}`;
+  } catch (error) {
+    console.error("Failed to upload file to minio", error);
+    throw new Error("Failed to upload file to minio");
+  }
+}
+
 export async function uploadBufferToMinio(
   buffer: Buffer,
   contentType: string
