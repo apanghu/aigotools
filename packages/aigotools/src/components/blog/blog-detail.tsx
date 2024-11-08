@@ -1,4 +1,3 @@
-
 import Image from "next/image";
 import Link from "next/link";
 import Balancer from "react-wrap-balancer";
@@ -7,7 +6,7 @@ import { cn } from "@/lib/utils";
 import { buttonVariants } from "@/components/ui/button";
 import Loading from "@/components/common/loading";
 import { Blog } from "@/models/blog";
-
+import Markdown from "react-markdown";
 export default function BlogDetail({ post }: { post: Blog }) {
   return (
     <div className="flex max-w-5xl mx-auto flex-col items-center justify-center py-2 min-h-screen">
@@ -35,8 +34,6 @@ export default function BlogDetail({ post }: { post: Blog }) {
             <h1 className="font-heading mt-2 inline-block text-4xl leading-tight lg:text-5xl">
               <Balancer>{post.name}</Balancer>
             </h1>
-
-
           </div>
           {/* {post.image && (
             <Image
@@ -48,7 +45,7 @@ export default function BlogDetail({ post }: { post: Blog }) {
               priority
             />
           )} */}
-          {post.content}
+          <Markdown>{post.content}</Markdown>
           <hr className="mt-12" />
           <div className="flex justify-center py-6 lg:py-10">
             <Link
