@@ -827,12 +827,9 @@ function blogToObject(blog: BlogDocument) {
 
   delete blogObj.__v;
 
-  if (blogObj.parent) {
-    blogObj.parent = blogObj.parent.toString();
-  }
-
   return blogObj as Blog;
 }
+
 export async function deleteBlog(id: string) {
   try {
     await assertIsManager();
@@ -867,17 +864,24 @@ export async function getBlogByName(name: string) {
     // 连接到数据库
     await dbConnect();
 
+    const query: FilterQuery<Blog> = {};
+
+    if (name) {
+      query.name = { $regex: name, $options: "i" };
+      query.published = true;
+    }
+
     // 使用正则表达式进行不区分大小写的查询
-    const blog = await BlogModel.findOne({
-      name: { $regex: name, $options: "i" },
-    });
+    const blog = await BlogModel.findOne(query);
 
     if (!blog) {
-      throw new Error(`Blog with name "${name}" not found`);
+      return null;
     }
 
     // 将 MongoDB 文档转换为普通对象
-    return blogToObject(blog);
+    return {
+      blog: blogToObject(blog),
+    };
   } catch (error) {
     console.log("Get blog by name error", error);
     throw error; // 发生错误时抛出

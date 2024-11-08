@@ -79,7 +79,6 @@ export function BlogPosts() {
   const t = useTranslations("blog");
   const [loading, setIsLoading] = useState(false);
 
-
   const { data: blogs, isLoading } = useQuery({
     queryKey: ["get-all-blogs"],
     queryFn: async () => {
@@ -135,7 +134,7 @@ export function BlogPosts() {
               </p>
             )}
             <Link
-              href={"/blog/" + (displayPosts[0]?.name ?? "/#")}
+              href={"/blog/" + displayPosts[0]?.name}
               className="absolute inset-0"
             >
               <span className="sr-only">View Article</span>
@@ -145,9 +144,7 @@ export function BlogPosts() {
       </section>
 
       <section>
-        <h2 className="font-heading mb-4 text-3xl">
-          {"blogPosts"}
-        </h2>
+        <h2 className="font-heading mb-4 text-3xl">{"blogPosts"}</h2>
         <div className="grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
           {displayPosts.slice(1).map((post) => (
             <article
@@ -176,7 +173,7 @@ export function BlogPosts() {
                   {post.publishedAt}
                 </p>
               )}
-              <Link href={"/blog/" + (post?.name ?? "/#")} className="absolute inset-0">
+              <Link href={"/blog/" + post?.name} className="absolute inset-0">
                 <span className="sr-only">{"viewArticle"}</span>
               </Link>
             </article>

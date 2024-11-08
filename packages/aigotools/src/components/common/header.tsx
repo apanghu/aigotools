@@ -66,6 +66,11 @@ export default function Header({ className }: { className?: string }) {
         {/* <Link href={"https://github.com/someu/aigotools"} target="_blank">
           <Github className="text-primary cursor-pointer" size={16} />
         </Link> */}
+        <Link href={"/blog"} target="_blank">
+          <Button className="font-semibold" size="sm" variant="bordered">
+            {t("blog")}
+          </Button>
+        </Link>
         <ThemeSwitcher />
         <LanguageSwitcher />
         <SignedOut>

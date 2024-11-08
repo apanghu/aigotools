@@ -3,7 +3,8 @@
     "submit": "提交",
     "login": "登录",
     "admin": "管理员",
-    "dashboard": "控制台"
+    "dashboard": "控制台",
+    "blog": "博客"
   },
   "footer": {
     "slogan": "发现 10000+ 有用的AI工具",
@@ -268,5 +269,8 @@
     "cancel": "Cancel",
     "published": "Published",
     "weight": "Weight"
+  },
+  "blog": {
+    "metadata": { "title": "blog" }
   }
 }
