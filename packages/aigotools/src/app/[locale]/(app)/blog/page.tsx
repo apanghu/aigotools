@@ -13,7 +13,7 @@ export async function generateMetadata({
 }): Promise<Metadata> {
   const t = await getTranslations({
     locale: params.locale,
-    namespace: "categories",
+    namespace: "blog",
   });
 
   return {
