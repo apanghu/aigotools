@@ -1,7 +1,7 @@
 "use client";
 import { useState } from "react";
 import { useTranslations, useLocale } from "next-intl";
-import { Github, LogOut } from "lucide-react";
+import { LogOut } from "lucide-react";
 import clsx from "clsx";
 import {
   Avatar,
@@ -63,15 +63,22 @@ export default function Header({ className }: { className?: string }) {
     >
       <Logo />
       <div className="flex items-center gap-2 sm:gap-4">
-        {/* <Link href={"https://github.com/someu/aigotools"} target="_blank">
-          <Github className="text-primary cursor-pointer" size={16} />
-        </Link> */}
-        <ThemeSwitcher />
-        <LanguageSwitcher />
-        <Link href={"/blog"} target="_blank">
-          <Button className="font-semibold" size="sm" variant="bordered">
-            {t("blog")}
-          </Button>
+        {/* pc */}
+        <Link
+          className="border-r border-gray-300 pr-4 space-x-2 
+                  hover:text-blue-400 transition hidden sm:flex"
+          href={"/blog"}
+          target="_blank"
+        >
+          {t("blog")}
+        </Link>
+        <Link
+          className="border-r border-gray-300 pr-4 space-x-2 
+                  hover:text-blue-400 transition hidden sm:flex"
+          href={"/about"}
+          target="_blank"
+        >
+          {t("about")}
         </Link>
         <SignedOut>
           <SignInButton forceRedirectUrl={forceRedirectUrl} mode="modal">
@@ -127,6 +134,9 @@ export default function Header({ className }: { className?: string }) {
             </DropdownMenu>
           </Dropdown>
         </SignedIn>
+        <ThemeSwitcher />
+        <LanguageSwitcher />
+        {/* mobile */}
         <MobileNav />
       </div>
       <LoadingModal showLoadingModal={isTransitioning} />

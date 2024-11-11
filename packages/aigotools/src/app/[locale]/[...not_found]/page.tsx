@@ -4,7 +4,6 @@ import { useTranslations } from "next-intl";
 import Link from "@/components/ui/Link";
 import Header from "@/components/common/header";
 import Footer from "@/components/common/footer";
-import FAQ from "@/components/common/faq";
 export default function NotFound() {
   const t = useTranslations("notFound");
 
@@ -13,7 +12,7 @@ export default function NotFound() {
       <Header />
       <main className="min-h-[60vh]">
         {" "}
-        <div className="flex max-w-5xl mx-auto flex-col items-center justify-center py-2 min-h-screen">
+        <div className="flex max-w-5xl mx-auto flex-col items-center justify-center py-2">
           <main className="flex flex-1 w-full flex-col items-center justify-center px-4 mt-12">
             <div className="flex flex-col items-start justify-start md:mt-24 md:flex-row md:items-center md:justify-center md:space-x-6">
               <div className="space-x-2 pb-8 pt-6 md:space-y-5">
@@ -37,7 +36,6 @@ export default function NotFound() {
           </main>
         </div>
       </main>
-      <FAQ />
       <Footer />
     </>
   );
