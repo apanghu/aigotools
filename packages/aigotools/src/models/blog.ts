@@ -2,6 +2,7 @@ import mongoose from "mongoose";
 import { MongoPlain } from "@/lib/types";
 export interface BlogDocument extends mongoose.Document {
   name: string;
+  description: string;
   content: string;
   createdAt: number;
   updatedAt: number;
@@ -29,6 +30,10 @@ const BlogSchema = new mongoose.Schema<Blog>({
     required: false,
   },
   content: {
+    type: String,
+    required: true,
+  },
+  description: {
     type: String,
     required: true,
   },

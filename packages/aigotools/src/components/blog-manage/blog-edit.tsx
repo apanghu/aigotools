@@ -7,17 +7,18 @@ import {
   ModalBody,
   ModalContent,
   ModalFooter,
-  ModalHeader
+  ModalHeader,
 } from "@nextui-org/react";
 import { useTranslations } from "next-intl";
-import { ChangeEvent, useCallback, useEffect, useState } from "react";
+import { useCallback, useEffect, useState } from "react";
 import { toast } from "react-toastify";
 import { useQuery } from "@tanstack/react-query";
+import MarkdownIt from "markdown-it";
+import MdEditor from "react-markdown-editor-lite";
 
 import { managerSearchBlogs, saveBlog } from "@/lib/actions";
 import { Blog } from "@/models/blog";
-import MarkdownIt from "markdown-it";
-import MdEditor from "react-markdown-editor-lite";
+
 import "react-markdown-editor-lite/lib/index.css";
 import { uploadStringToMinio } from "@/lib/minio";
 export default function BlogEdit({
@@ -74,6 +75,7 @@ export default function BlogEdit({
       }
       setSaving(true);
       const values = getValues();
+
       values.content = content; // 手动赋值为最新的 content
       await saveBlog(values);
       onClose();
@@ -107,6 +109,7 @@ export default function BlogEdit({
   const handleImageUpload = (file: any) => {
     return new Promise((resolve) => {
       const reader = new FileReader();
+
       reader.onload = async (data: any) => {
         //一定要把base64转化为string格式
         const base64 = data.target.result.replace(
@@ -115,6 +118,7 @@ export default function BlogEdit({
         );
         //数据处理完发起put请求，完成图像上传。
         const res = await uploadStringToMinio(base64, file.type);
+
         //对返回的res.url图像存储的路径resolve出去，实现云上的图像的展示
         resolve(res);
       };
@@ -126,6 +130,7 @@ export default function BlogEdit({
     setContent(""); // 清空 content 状态
     onClose();
   };
+
   return (
     <Modal isOpen={isOpen} onClose={() => setIsOpen(false)}>
       <ModalContent>
@@ -171,6 +176,17 @@ export default function BlogEdit({
             />
             <Input
               isRequired
+              label={t("description")}
+              size="sm"
+              value={formValues.description}
+              {...register("description", {
+                required: true,
+              })}
+              color={formState.errors.name ? "danger" : "default"}
+            />
+
+            <Input
+              isRequired
               label={t("image")}
               size="sm"
               value={formValues.image}
@@ -180,21 +196,17 @@ export default function BlogEdit({
               color={formState.errors.name ? "danger" : "default"}
             />
             <MdEditor
-              value={content}
-              style={{ height: "50vh" }}
               renderHTML={(text) => mdParser.render(text)}
+              style={{ height: "50vh" }}
+              value={content}
+              view={{ menu: true, md: true, html: true }} // 禁用实时预览，仅保留Markdown编辑
               onChange={handleEditorChange}
               onImageUpload={handleImageUpload}
-              view={{ menu: true, md: true, html: true }} // 禁用实时预览，仅保留Markdown编辑
             />
           </form>
         </ModalBody>
         <ModalFooter>
-          <Button
-            color="default"
-            size="sm"
-            onClick={handleClose}
-          >
+          <Button color="default" size="sm" onClick={handleClose}>
             {t("cancel")}
           </Button>
           <Button

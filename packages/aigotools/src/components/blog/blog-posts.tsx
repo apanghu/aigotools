@@ -8,7 +8,7 @@ import { useTranslations } from "next-intl";
 import { useQuery } from "@tanstack/react-query";
 
 import { getAllBlogs } from "@/lib/actions";
-
+import Image from "@/components/ui/Image";
 interface PaginationProps {
   totalPages: number;
   currentPage: number;
@@ -106,7 +106,7 @@ export function BlogPosts() {
         <h2 className="font-heading mb-4 text-3xl">{t("lastPost")}</h2>
         <article className="relative grid grid-cols-1 gap-6 md:grid-cols-2">
           <div>
-            {/* {displayPosts[0]?.image && (
+            {displayPosts[0]?.image && (
               <Image
                 alt={displayPosts[0].name}
                 className="w-full rounded-lg border object-cover object-center md:h-64 lg:h-72"
@@ -114,15 +114,15 @@ export function BlogPosts() {
                 src={displayPosts[0].image}
                 width={804}
               />
-            )} */}
+            )}
           </div>
           <div className="flex flex-col justify-center">
             <h3 className="font-heading mb-2 text-2xl md:text-4xl">
               <Balancer>{displayPosts[0]?.name}</Balancer>
             </h3>
-            {displayPosts[0]?.content && (
+            {displayPosts[0]?.description && (
               <p className="text-muted-foreground md:text-lg">
-                <Balancer>{displayPosts[0]?.content}</Balancer>
+                <Balancer>{displayPosts[0]?.description}</Balancer>
               </p>
             )}
             <Link
@@ -143,26 +143,26 @@ export function BlogPosts() {
               key={post._id}
               className="group relative flex flex-col space-y-2"
             >
-              {/* {post.image && (
+              {post.image && (
                 <Image
                   alt={post.name}
+                  className="rounded-md border bg-muted transition-colors"
+                  height={452}
                   src={post.image}
                   width={804}
-                  height={452}
-                  className="rounded-md border bg-muted transition-colors"
                 />
-              )} */}
+              )}
               <h2 className="font-heading line-clamp-1 text-2xl">
                 {post.name}
               </h2>
-              {post.content && (
+              {post.description && (
                 <p className="line-clamp-1 text-muted-foreground">
-                  {post.content}
+                  {post.description}
                 </p>
               )}
               {post.publishedAt && (
                 <p className="text-sm text-muted-foreground">
-                  {post.publishedAt}
+                  formatDate(post.publishedAt)
                 </p>
               )}
               <Link className="absolute inset-0" href={"/blog/" + post?.name}>

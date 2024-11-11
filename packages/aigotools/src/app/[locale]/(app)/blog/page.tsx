@@ -27,7 +27,9 @@ export default function Page() {
   return (
     <Container>
       <NavBar name={t("metadata.title")} />
-      <BlogPosts />
+      <main className="flex flex-1 w-full flex-col items-center justify-center px-4 mt-12">
+        <BlogPosts />
+      </main>
     </Container>
   );
 }

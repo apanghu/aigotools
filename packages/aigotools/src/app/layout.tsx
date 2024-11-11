@@ -3,6 +3,7 @@ import { GoogleAnalytics } from "@next/third-parties/google";
 import clsx from "clsx";
 import { Inter } from "next/font/google";
 import "./globals.css";
+
 import { Viewport } from "next";
 
 import { AppConfig } from "../lib/config";
