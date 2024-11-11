@@ -5,6 +5,7 @@ import Hero from "@/components/index/hero";
 import Search from "@/components/index/search";
 import SiteGroup from "@/components/common/sites-group";
 import { getFeaturedSites, getLatestSites } from "@/lib/actions";
+import FAQ from "@/components/common/faq";
 
 export default async function Page() {
   const t = await getTranslations("index");
@@ -20,6 +21,7 @@ export default async function Page() {
         <Search />
         <SiteGroup id="featured" sites={featuredSites} title={t("featured")} />
         <SiteGroup id="latest" sites={latestSites} title={t("latest")} />
+        <FAQ />
       </Container>
     </>
   );
