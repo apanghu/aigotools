@@ -278,7 +278,21 @@
     "seeAllPosts": "查看所有帖子"
   },
   "about": {
-    "metadata": { "title": "关于" }
+    "metadata": { "title": "关于" },
+    "author": "Daniel Brown",
+    "siteUrl": "https://freakytextgenerator.us",
+    "email": "info@freakytextgenerator.us",
+    "github": "https://github.com",
+    "x": "https://twitter.com/x",
+    "facebook": "https://facebook.com",
+    "youtube": "https://youtube.com",
+    "linkedin": "https://www.linkedin.com",
+    "threads": "https://www.threads.net",
+    "instagram": "https://www.instagram.com",
+    "occupation": "Professor of Atmospheric Science",
+    "company": "Stanford University",
+    "avatar": "/avatar.png",
+    "children": "<p>Daniel Brown is a distinguished Professor of Computer Science at the prestigious Stanford AI Lab. With a decade of experience under his belt, he's a master at full-stack development, proficient in Java, Python, and JavaScript. He brings a unique blend of creativity and technical prowess to every project he undertakes.</p></br><p>As a leader in his field, Daniel is a driving force for innovation, always pushing the boundaries of what's possible with software. He's committed to creating a collaborative environment that fosters continuous learning and growth. His contributions to code reviews and mentorship have helped shape the careers of many aspiring developers.</p></br><p>Beyond his professional life, Daniel is an active member of the tech community, engaging with peers through open-source contributions and conference presentations. He's also a hands-on enthusiast when it comes to Raspberry Pi projects and is always on the lookout for the next big thing in AI and machine learning.</p></br>"
   },
   "notFound": {
     "metadata": { "title": "404" },

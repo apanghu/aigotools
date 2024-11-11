@@ -1,11 +1,8 @@
-import type { Metadata, NextPage } from "next";
 import About from "@/components/common/About";
 
 // export const metadata = {
 //   title: "About",
 // };
-
-interface ModelsProps {}
 
 export default async function about() {
   return (
