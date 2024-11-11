@@ -18,6 +18,8 @@ const nextConfig = {
       "avatars.githubusercontent.com",
       "cdn.buymeacoffee.com",
       "pic2.zhimg.com",
+      "c-ssl.duitang.com",
+      "freakytextgenerator.us",
     ],
   },
 };

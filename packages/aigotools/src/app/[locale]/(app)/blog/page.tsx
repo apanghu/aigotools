@@ -2,9 +2,9 @@ import { Metadata } from "next";
 import { getTranslations } from "next-intl/server";
 import { useTranslations } from "next-intl";
 
+import { BlogPosts } from "@/components/blog/blog-posts";
 import Container from "@/components/common/container";
 import NavBar from "@/components/common/nav-bar";
-import { BlogPosts } from "@/components/blog/blog-posts";
 
 export async function generateMetadata({
   params,
@@ -27,9 +27,11 @@ export default function Page() {
   return (
     <Container>
       <NavBar name={t("metadata.title")} />
-      <main className="flex flex-1 w-full flex-col items-center justify-center px-4 mt-12">
-        <BlogPosts />
-      </main>
+      <div className="flex max-w-6xl mx-auto flex-col items-center justify-center py-2 ">
+        <main className="flex flex-1 w-full flex-col items-center justify-center px-4 mt-12">
+          <BlogPosts />
+        </main>
+      </div>
     </Container>
   );
 }
