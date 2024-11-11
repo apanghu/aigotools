@@ -271,6 +271,19 @@
     "weight": "Weight"
   },
   "blog": {
-    "metadata": { "title": "blog" }
+    "metadata": { "title": "blog" },
+    "lastPost": "最新帖子",
+    "blogPosts": "博客帖子",
+    "viewArticle": "查看文章",
+    "seeAllPosts": "查看所有帖子"
+  },
+  "about": {
+    "metadata": { "title": "关于" }
+  },
+  "notFound": {
+    "metadata": { "title": "404" },
+    "description1": "抱歉，我们找不到此页面",
+    "description2": "但别担心，您可以在我们的主页找到许多其他内容",
+    "backto": "返回主页"
   }
 }

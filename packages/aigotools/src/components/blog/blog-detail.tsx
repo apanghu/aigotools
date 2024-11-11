@@ -1,26 +1,27 @@
-import Image from "next/image";
 import Link from "next/link";
 import Balancer from "react-wrap-balancer";
+import Markdown from "react-markdown";
+import { useTranslations } from "next-intl";
+
 import * as Icons from "@/components/ui/icons";
 import { cn } from "@/lib/utils";
 import { buttonVariants } from "@/components/ui/button";
-import Loading from "@/components/common/loading";
 import { Blog } from "@/models/blog";
-import Markdown from "react-markdown";
 export default function BlogDetail({ post }: { post: Blog }) {
+  const t = useTranslations("blog");
+
   return (
     <div className="flex max-w-5xl mx-auto flex-col items-center justify-center py-2 min-h-screen">
       <main className="flex flex-1 w-full flex-col items-center justify-center px-4 mt-12">
         <article className="container relative max-w-3xl py-6 lg:py-10">
           <Link
-            href={`/blog`}
             className={cn(
               buttonVariants({ variant: "ghost" }),
               "absolute left-[-200px] top-14 hidden xl:inline-flex"
             )}
+            href={`/blog`}
           >
-            <Icons.ChevronLeft className="mr-2 h-4 w-4" />
-            {"seeAllPosts"}
+            <Icons.ChevronLeft className="mr-2 h-4 w-4" /> {t("seeAllPosts")}
           </Link>
           <div>
             {/* {post.publishedAt && (
@@ -49,11 +50,11 @@ export default function BlogDetail({ post }: { post: Blog }) {
           <hr className="mt-12" />
           <div className="flex justify-center py-6 lg:py-10">
             <Link
-              href={`/blog`}
               className={cn(buttonVariants({ variant: "ghost" }))}
+              href={`/blog`}
             >
               <Icons.ChevronLeft className="mr-2 h-4 w-4" />
-              {"seeAllPosts"}
+              {t("seeAllPosts")}
             </Link>
           </div>
         </article>

@@ -1,27 +1,17 @@
 "use client";
-import Image from "next/image";
 import Link from "next/link";
 import Balancer from "react-wrap-balancer";
-
 import { usePathname } from "next/navigation";
-
 import { compareDesc } from "date-fns";
-import { useCallback, useState } from "react";
-import { getAllBlogs } from "@/lib/actions";
-import { toast } from "react-toastify";
-import { Blog } from "@/models/blog";
+import { useState } from "react";
 import { useTranslations } from "next-intl";
-
 import { useQuery } from "@tanstack/react-query";
+
+import { getAllBlogs } from "@/lib/actions";
 
 interface PaginationProps {
   totalPages: number;
   currentPage: number;
-}
-interface BlogPostsProps {
-  posts: Blog[];
-  pagination?: PaginationProps;
-  initialDisplayPosts?: Blog[];
 }
 
 function Pagination({ totalPages, currentPage }: PaginationProps) {
@@ -75,6 +65,7 @@ function Pagination({ totalPages, currentPage }: PaginationProps) {
   );
 }
 const POSTS_PER_PAGE = 5;
+
 export function BlogPosts() {
   const t = useTranslations("blog");
   const [loading, setIsLoading] = useState(false);
@@ -103,15 +94,16 @@ export function BlogPosts() {
 
   const displayPosts =
     initialDisplayPosts?.length > 0 ? initialDisplayPosts : posts;
+
   return (
     <div className="container space-y-10 py-6 md:py-10">
       <div className="space-y-2 pb-8 pt-6 md:space-y-5">
         <h1 className="text-3xl font-extrabold leading-9 tracking-tight text-gray-900 dark:text-gray-100 sm:text-4xl sm:leading-10 md:text-6xl md:leading-14">
-          {"blogPosts"}
+          {t("blogPosts")}
         </h1>
       </div>
       <section>
-        <h2 className="font-heading mb-4 text-3xl">{"lastPost"}</h2>
+        <h2 className="font-heading mb-4 text-3xl">{t("lastPost")}</h2>
         <article className="relative grid grid-cols-1 gap-6 md:grid-cols-2">
           <div>
             {/* {displayPosts[0]?.image && (
@@ -134,8 +126,8 @@ export function BlogPosts() {
               </p>
             )}
             <Link
-              href={"/blog/" + displayPosts[0]?.name}
               className="absolute inset-0"
+              href={"/blog/" + displayPosts[0]?.name}
             >
               <span className="sr-only">View Article</span>
             </Link>
@@ -144,7 +136,7 @@ export function BlogPosts() {
       </section>
 
       <section>
-        <h2 className="font-heading mb-4 text-3xl">{"blogPosts"}</h2>
+        <h2 className="font-heading mb-4 text-3xl">{t("blogPosts")}</h2>
         <div className="grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
           {displayPosts.slice(1).map((post) => (
             <article
@@ -173,8 +165,8 @@ export function BlogPosts() {
                   {post.publishedAt}
                 </p>
               )}
-              <Link href={"/blog/" + post?.name} className="absolute inset-0">
-                <span className="sr-only">{"viewArticle"}</span>
+              <Link className="absolute inset-0" href={"/blog/" + post?.name}>
+                <span className="sr-only">{t("viewArticle")}</span>
               </Link>
             </article>
           ))}
