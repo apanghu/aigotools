@@ -20,6 +20,7 @@ const nextConfig = {
       "pic2.zhimg.com",
       "c-ssl.duitang.com",
       "freakytextgenerator.us",
+      "image.gamenav.org",
     ],
   },
 };

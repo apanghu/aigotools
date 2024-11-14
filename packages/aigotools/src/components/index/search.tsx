@@ -160,7 +160,8 @@ export default function Search({
                   router.push(url);
                 }}
               >
-                {[item.icon, item.name].filter(Boolean).join(" ")}
+                {/* {[item.icon, item.name].filter(Boolean).join(" ")} */}
+                {[item.name].filter(Boolean).join(" ")}
               </CategoryTag>
             );
           })}
