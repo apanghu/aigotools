@@ -45,8 +45,11 @@ export default function SiteCard({ site }: { site: Site }) {
             </div>
           )}
         </div>
-        <div className="mt-2 text-primary-400 text-sm overflow-hidden text-ellipsis line-clamp-2">
-          {site.desceription}
+        <div
+          dangerouslySetInnerHTML={{ __html: site.desceription }}
+          className="mt-2 text-primary-400 text-sm overflow-hidden text-ellipsis line-clamp-2"
+        >
+          {/* {site.desceription} */}
         </div>
         <div className="mt-4 flex items-center justify-between gap-4">
           <div className="flex flex-wrap gap-2">

@@ -1,7 +1,6 @@
 import dayjs from "dayjs";
-import { Button, Divider, Image } from "@nextui-org/react";
+import { Divider, Image } from "@nextui-org/react";
 import { useTranslations } from "next-intl";
-import { ExternalLink, Navigation } from "lucide-react";
 import Link from "next/link";
 import clsx from "clsx";
 
@@ -10,6 +9,8 @@ import ListItem from "./list-item";
 import SiteTags from "./site-tags";
 
 import { Site } from "@/models/site";
+import IframeEmbed from "@/components/common/Iframe"; // 引入上面创建的 IframeEmbed 组件
+import RatingComponent from "@/components/common/RatingComponent";
 
 export default function SiteDetail({ site }: { site: Site }) {
   const t = useTranslations("site");
@@ -27,11 +28,23 @@ export default function SiteDetail({ site }: { site: Site }) {
             "after:content-[' '] after:overflow-hidden after:absolute after:-bottom-[1px] after:left-0 after:h-[2px] after:bg-primary-800 after:w-0 hover:after:w-full after:transition-width"
           )}
         >
+          {site.descriptionIcon && (
+            <Image
+              alt={site.name}
+              className="rounded-full border float-left m-15" // 设置右边间距 mr-8
+              height={75}
+              src={site.descriptionIcon}
+              width={75}
+            />
+          )}
           <span>{site.name}</span>
-          <ExternalLink size={22} strokeWidth={3} />
+
+          {/* <ExternalLink size={22} strokeWidth={3} /> */}
         </h2>
       </Link>
-
+      <div className="text-center mt-5 text-primary-500 font-medium text-sm">
+        <RatingComponent site={site} />
+      </div>
       <div className="text-center mt-5 text-primary-500 font-medium text-sm">
         {dayjs(site.updatedAt).format("YYYY-MM-DD HH:mm:ss")}
       </div>
@@ -50,7 +63,19 @@ export default function SiteDetail({ site }: { site: Site }) {
           <SiteTags site={site} />
         </div>
         <div className="flex-1 basis-full lg:basis-[70%] text-base text-primary-700 font-normal">
-          <div>{site.desceription}</div>
+          <div dangerouslySetInnerHTML={{ __html: site.desceription }}>
+            {/* {site.desceription}  */}
+          </div>
+          <div className="mt-10">
+            <IframeEmbed
+              buttonText="Click to Load"
+              height="100%"
+              overlayImage="https://www.example.com/overlay-image.png"
+              src={site.url}
+              title={site.name}
+              width="100%"
+            />
+          </div>
           {site.features.length > 0 && (
             <>
               <h3 className="my-6 font-bold text-2xl text-primary-800">
@@ -134,7 +159,7 @@ export default function SiteDetail({ site }: { site: Site }) {
       <div className="mx-auto max-w-full w-[720px] gap-6">
         <Divider className="mt-12 mb-8 bg-primary-300" />
         <div className="flex gap-6 items-center justify-center">
-          <Link href={site.url} target="_blank">
+          {/* <Link href={site.url} target="_blank">
             <Button
               className="w-56 font-semibold"
               color="primary"
@@ -144,7 +169,7 @@ export default function SiteDetail({ site }: { site: Site }) {
               <Navigation size={14} strokeWidth={3} />
               {t("visitSite")}
             </Button>
-          </Link>
+          </Link> */}
           <VoteButton site={site} />
         </div>
       </div>

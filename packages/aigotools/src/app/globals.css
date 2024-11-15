@@ -2,13 +2,41 @@
 @tailwind components;
 @tailwind utilities;
 
-
 @layer base {
   :root {
     --transition-duration: 0.3s;
   }
 
   html {
-    transition: background-color var(--transition-duration), color var(--transition-duration);
+    transition: background-color var(--transition-duration),
+      color var(--transition-duration);
   }
+}
+/* Rating Information */
+.rating-info {
+  font-size: 14px;
+  color: #333;
+}
+.star-rating {
+  font-size: 20px;
+  color: #ffd700; /* 星星的黄色 */
+}
+
+.star {
+  margin-right: 5px;
+}
+
+.star.filled {
+  color: #ffd700; /* 满星颜色 */
+}
+
+.star.empty {
+  color: #e0e0e0; /* 空星颜色 */
+}
+
+.star.half {
+  color: #ffd700;
+  background: linear-gradient(90deg, #ffd700 50%, #e0e0e0 50%);
+  -webkit-background-clip: text;
+  color: transparent;
 }

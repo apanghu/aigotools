@@ -34,6 +34,8 @@ export interface SiteDocument extends mongoose.Document {
   processStage: ProcessStage;
   createdAt: number;
   updatedAt: number;
+  descriptionIcon: string;
+  rating: number;
 }
 
 export type Site = MongoPlain<SiteDocument>;
