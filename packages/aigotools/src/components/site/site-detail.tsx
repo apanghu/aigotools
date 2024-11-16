@@ -87,12 +87,10 @@ export default function SiteDetail({ site }: { site: Site }) {
           </div>
           <div className="mt-10">
             <IframeEmbed
-              buttonText="Click to Load"
-              height="100%"
-              overlayImage={site.descriptionIcon}
-              src={site.url}
+              buttonText="Play the game"
+              iconImage={site.descriptionIcon} // Icon 图片的 URL
+              src={site.url} // 游戏的 URL
               title={site.name}
-              width="100%"
             />
           </div>
           {site.features.length > 0 && (
