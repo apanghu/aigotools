@@ -1,18 +1,18 @@
-"use client"; // 声明为 Client Component
+"use client";
 
 import React, { useState } from "react";
 
 export default function IframeEmbed({
   src,
   title,
-  iconImage, // Icon 图片的 URL
-  buttonText = "Play the game", // 按钮文本
+  iconImage,
+  buttonText = "Play the game",
   width = "800px",
   height = "450px",
 }) {
-  const [isIframeLoaded, setIsIframeLoaded] = useState(false); // 控制 iframe 是否加载
+  const [isIframeLoaded, setIsIframeLoaded] = useState(false);
+  const [isHovered, setIsHovered] = useState(false); // 控制鼠标悬停状态
 
-  // 按钮点击事件，开始加载 iframe
   const handleButtonClick = () => {
     setIsIframeLoaded(true);
   };
@@ -23,13 +23,15 @@ export default function IframeEmbed({
         width,
         height,
         position: "relative",
-        borderRadius: "10px",
+        borderRadius: "20px",
         overflow: "hidden",
-        boxShadow: "0 4px 12px rgba(0, 0, 0, 0.2)",
-        backgroundColor: "#f0f0f0",
+        boxShadow: "0 12px 32px rgba(0, 0, 0, 0.3)",
+        background:
+          "linear-gradient(135deg, rgba(30, 30, 30, 0.8), rgba(50, 50, 50, 0.8))",
+        backdropFilter: "blur(10px)", // 添加模糊效果
+        border: "1px solid rgba(255, 255, 255, 0.1)",
       }}
     >
-      {/* 如果 isIframeLoaded 为 true，则加载 iframe */}
       {isIframeLoaded ? (
         <iframe
           allowFullScreen
@@ -38,12 +40,11 @@ export default function IframeEmbed({
           style={{
             width: "100%",
             height: "100%",
-            borderRadius: "10px",
+            borderRadius: "20px",
           }}
           title={title}
         />
       ) : (
-        // 初始展示状态
         <div
           style={{
             display: "flex",
@@ -53,45 +54,111 @@ export default function IframeEmbed({
             width: "100%",
             height: "100%",
             position: "relative",
-            backgroundColor: "#1e1e1e",
+            backgroundColor: "rgba(30, 30, 30, 0.9)",
+            padding: "20px",
+            textAlign: "center",
           }}
         >
-          {/* Icon 图片 */}
-          {iconImage && (
+          {/* 动态 Icon 图片 */}
+          <div
+            style={{
+              width: "200px",
+              height: "200px",
+              marginBottom: "30px",
+              borderRadius: "50%",
+              overflow: "hidden",
+              boxShadow: "0 8px 20px rgba(0, 0, 0, 0.4)",
+              animation: "pulse 2s infinite",
+              transition: "transform 0.3s ease",
+              position: "relative",
+              cursor: "pointer",
+            }}
+            onMouseEnter={() => setIsHovered(true)}
+            onMouseLeave={() => setIsHovered(false)}
+          >
+            {/* 图标图片 */}
             <img
               alt="Game Icon"
               src={iconImage}
               style={{
-                width: "100px",
-                height: "100px",
-                borderRadius: "50%",
+                width: "100%",
+                height: "100%",
                 objectFit: "cover",
-                marginBottom: "20px",
-                boxShadow: "0 4px 8px rgba(0, 0, 0, 0.2)",
               }}
             />
-          )}
+
+            {/* 悬浮显示游戏名称在图标中央 */}
+            {isHovered && (
+              <div
+                style={{
+                  position: "absolute",
+                  top: "0",
+                  left: "0",
+                  width: "100%",
+                  height: "100%",
+                  display: "flex",
+                  alignItems: "center",
+                  justifyContent: "center",
+                  backgroundColor: "rgba(0, 0, 0, 0.6)",
+                  color: "#fff",
+                  fontSize: "18px",
+                  fontWeight: "bold",
+                  borderRadius: "50%",
+                }}
+              >
+                {title}
+              </div>
+            )}
+          </div>
 
           {/* Play the game 按钮 */}
           <button
             style={{
-              padding: "12px 24px",
-              fontSize: "16px",
+              padding: "15px 40px",
+              fontSize: "20px",
               fontWeight: "bold",
               color: "#fff",
-              backgroundColor: "#007bff",
+              background: "linear-gradient(to right, #6a11cb, #2575fc)",
               border: "none",
-              borderRadius: "5px",
+              borderRadius: "30px",
               cursor: "pointer",
-              boxShadow: "0 4px 8px rgba(0, 0, 0, 0.2)",
-              transition: "all 0.3s ease",
+              boxShadow: "0 8px 16px rgba(0, 0, 0, 0.4)",
+              transition: "transform 0.2s ease, box-shadow 0.2s ease",
+              textShadow: "0 2px 4px rgba(0, 0, 0, 0.3)",
             }}
             onClick={handleButtonClick}
+            onMouseEnter={(e) => {
+              e.currentTarget.style.transform = "scale(1.05)";
+              e.currentTarget.style.boxShadow =
+                "0 12px 24px rgba(0, 0, 0, 0.5)";
+            }}
+            onMouseLeave={(e) => {
+              e.currentTarget.style.transform = "scale(1)";
+              e.currentTarget.style.boxShadow = "0 8px 16px rgba(0, 0, 0, 0.4)";
+            }}
           >
             {buttonText}
           </button>
         </div>
       )}
+
+      {/* 动画样式 */}
+      <style jsx>{`
+        @keyframes pulse {
+          0% {
+            transform: scale(1);
+            opacity: 0.9;
+          }
+          50% {
+            transform: scale(1.1);
+            opacity: 1;
+          }
+          100% {
+            transform: scale(1);
+            opacity: 0.9;
+          }
+        }
+      `}</style>
     </div>
   );
 }
