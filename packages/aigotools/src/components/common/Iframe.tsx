@@ -7,158 +7,54 @@ export default function IframeEmbed({
   title,
   iconImage,
   buttonText = "Play the game",
-  width = "800px",
-  height = "450px",
 }) {
   const [isIframeLoaded, setIsIframeLoaded] = useState(false);
-  const [isHovered, setIsHovered] = useState(false); // 控制鼠标悬停状态
+  const [isHovered, setIsHovered] = useState(false);
 
   const handleButtonClick = () => {
     setIsIframeLoaded(true);
   };
 
   return (
-    <div
-      style={{
-        width,
-        height,
-        position: "relative",
-        borderRadius: "20px",
-        overflow: "hidden",
-        boxShadow: "0 12px 32px rgba(0, 0, 0, 0.3)",
-        background:
-          "linear-gradient(135deg, rgba(30, 30, 30, 0.8), rgba(50, 50, 50, 0.8))",
-        backdropFilter: "blur(10px)", // 添加模糊效果
-        border: "1px solid rgba(255, 255, 255, 0.1)",
-      }}
-    >
+    <div className="relative w-full max-w-5xl aspect-video rounded-2xl overflow-hidden shadow-xl bg-gradient-to-br from-gray-800 via-gray-700 to-gray-900">
+      {/* 加载 iframe */}
       {isIframeLoaded ? (
         <iframe
           allowFullScreen
-          frameBorder="0"
+          className="w-full h-full rounded-2xl"
           src={src}
-          style={{
-            width: "100%",
-            height: "100%",
-            borderRadius: "20px",
-          }}
           title={title}
         />
       ) : (
-        <div
-          style={{
-            display: "flex",
-            flexDirection: "column",
-            alignItems: "center",
-            justifyContent: "center",
-            width: "100%",
-            height: "100%",
-            position: "relative",
-            backgroundColor: "rgba(30, 30, 30, 0.9)",
-            padding: "20px",
-            textAlign: "center",
-          }}
-        >
-          {/* 动态 Icon 图片 */}
+        <div className="flex flex-col items-center justify-center w-full h-full p-4">
+          {/* 游戏图标 */}
           <div
-            style={{
-              width: "200px",
-              height: "200px",
-              marginBottom: "30px",
-              borderRadius: "50%",
-              overflow: "hidden",
-              boxShadow: "0 8px 20px rgba(0, 0, 0, 0.4)",
-              animation: "pulse 2s infinite",
-              transition: "transform 0.3s ease",
-              position: "relative",
-              cursor: "pointer",
-            }}
+            className="relative w-40 h-40 md:w-48 md:h-48 lg:w-56 lg:h-56 rounded-full overflow-hidden shadow-lg animate-pulse hover:animate-none transition-all duration-300 cursor-pointer"
             onMouseEnter={() => setIsHovered(true)}
             onMouseLeave={() => setIsHovered(false)}
           >
-            {/* 图标图片 */}
             <img
-              alt="Game Icon"
+              alt={title}
+              className="w-full h-full object-cover"
               src={iconImage}
-              style={{
-                width: "100%",
-                height: "100%",
-                objectFit: "cover",
-              }}
             />
-
-            {/* 悬浮显示游戏名称在图标中央 */}
+            {/* 悬停时显示游戏名称 */}
             {isHovered && (
-              <div
-                style={{
-                  position: "absolute",
-                  top: "0",
-                  left: "0",
-                  width: "100%",
-                  height: "100%",
-                  display: "flex",
-                  alignItems: "center",
-                  justifyContent: "center",
-                  backgroundColor: "rgba(0, 0, 0, 0.6)",
-                  color: "#fff",
-                  fontSize: "18px",
-                  fontWeight: "bold",
-                  borderRadius: "50%",
-                }}
-              >
+              <div className="absolute inset-0 flex items-center justify-center bg-black bg-opacity-60 text-white font-semibold text-lg md:text-xl lg:text-2xl">
                 {title}
               </div>
             )}
           </div>
 
-          {/* Play the game 按钮 */}
+          {/* 播放游戏按钮 */}
           <button
-            style={{
-              padding: "15px 40px",
-              fontSize: "20px",
-              fontWeight: "bold",
-              color: "#fff",
-              background: "linear-gradient(to right, #6a11cb, #2575fc)",
-              border: "none",
-              borderRadius: "30px",
-              cursor: "pointer",
-              boxShadow: "0 8px 16px rgba(0, 0, 0, 0.4)",
-              transition: "transform 0.2s ease, box-shadow 0.2s ease",
-              textShadow: "0 2px 4px rgba(0, 0, 0, 0.3)",
-            }}
+            className="mt-6 px-6 py-3 text-white bg-blue-500 hover:bg-blue-600 rounded-full text-lg md:text-xl font-bold shadow-md transition-transform transform hover:scale-105 focus:outline-none focus:ring-4 focus:ring-blue-300"
             onClick={handleButtonClick}
-            onMouseEnter={(e) => {
-              e.currentTarget.style.transform = "scale(1.05)";
-              e.currentTarget.style.boxShadow =
-                "0 12px 24px rgba(0, 0, 0, 0.5)";
-            }}
-            onMouseLeave={(e) => {
-              e.currentTarget.style.transform = "scale(1)";
-              e.currentTarget.style.boxShadow = "0 8px 16px rgba(0, 0, 0, 0.4)";
-            }}
           >
             {buttonText}
           </button>
         </div>
       )}
-
-      {/* 动画样式 */}
-      <style jsx>{`
-        @keyframes pulse {
-          0% {
-            transform: scale(1);
-            opacity: 0.9;
-          }
-          50% {
-            transform: scale(1.1);
-            opacity: 1;
-          }
-          100% {
-            transform: scale(1);
-            opacity: 0.9;
-          }
-        }
-      `}</style>
     </div>
   );
 }
