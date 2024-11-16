@@ -89,7 +89,7 @@ export default function SiteDetail({ site }: { site: Site }) {
             <IframeEmbed
               buttonText="Click to Load"
               height="100%"
-              overlayImage="https://www.example.com/overlay-image.png"
+              overlayImage={site.descriptionIcon}
               src={site.url}
               title={site.name}
               width="100%"
