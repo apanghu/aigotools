@@ -1,8 +1,10 @@
+"use client";
 import dayjs from "dayjs";
 import { Divider, Image } from "@nextui-org/react";
 import { useTranslations } from "next-intl";
 import Link from "next/link";
 import clsx from "clsx";
+import { useState } from "react";
 
 import VoteButton from "./vote-button";
 import ListItem from "./list-item";
@@ -14,6 +16,7 @@ import RatingComponent from "@/components/common/RatingComponent";
 
 export default function SiteDetail({ site }: { site: Site }) {
   const t = useTranslations("site");
+  const [isHovered, setIsHovered] = useState(false);
 
   return (
     <div className="py-9">
@@ -49,7 +52,11 @@ export default function SiteDetail({ site }: { site: Site }) {
         {dayjs(site.updatedAt).format("YYYY-MM-DD HH:mm:ss")}
       </div>
       <div className="mt-9 flex flex-wrap lg:flex-nowrap gap-6">
-        <div className="flex-1 basis-full lg:basis-[30%]">
+        <div
+          className="flex-1 basis-full lg:basis-[30%] relative"
+          onMouseEnter={() => setIsHovered(true)}
+          onMouseLeave={() => setIsHovered(false)}
+        >
           <Image
             isZoomed
             alt={site.name}
@@ -60,6 +67,18 @@ export default function SiteDetail({ site }: { site: Site }) {
             radius="sm"
             src={site.snapshot}
           />
+          {isHovered && site.tags?.length > 0 && (
+            <div className="absolute top-2 left-2 flex flex-wrap gap-2 z-10">
+              {site.tags.slice(0, 2).map((tag, index) => (
+                <span
+                  key={index}
+                  className="text-tiny font-medium py-[1px] px-2 rounded-[4px] bg-primary-700 text-primary-200"
+                >
+                  {tag}
+                </span>
+              ))}
+            </div>
+          )}
           <SiteTags site={site} />
         </div>
         <div className="flex-1 basis-full lg:basis-[70%] text-base text-primary-700 font-normal">

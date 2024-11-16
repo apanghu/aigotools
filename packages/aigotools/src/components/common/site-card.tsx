@@ -2,12 +2,14 @@
 import clsx from "clsx";
 import { Image } from "@nextui-org/react";
 import { ExternalLink, ThumbsUpIcon } from "lucide-react";
+import { useState } from "react";
 
 import { Site } from "@/models/site";
 import { useRouter } from "@/navigation";
 
 export default function SiteCard({ site }: { site: Site }) {
   const router = useRouter();
+  const [isHovered, setIsHovered] = useState(false);
 
   return (
     <div
@@ -16,17 +18,34 @@ export default function SiteCard({ site }: { site: Site }) {
       onClick={() => {
         router.push(`/s/${site.siteKey}`);
       }}
+      onMouseEnter={() => setIsHovered(true)}
+      onMouseLeave={() => setIsHovered(false)}
     >
-      <Image
-        isZoomed
-        alt={site.name}
-        classNames={{
-          wrapper: "w-full !max-w-full",
-          img: "w-full aspect-video object-fill",
-        }}
-        radius="none"
-        src={site.snapshot}
-      />
+      <div className="relative">
+        <Image
+          isZoomed
+          alt={site.name}
+          classNames={{
+            wrapper: "w-full !max-w-full",
+            img: "w-full aspect-video object-fill",
+          }}
+          radius="none"
+          src={site.snapshot}
+        />
+        {isHovered && site.tags?.length > 0 && (
+          <div className="absolute top-2 left-2 flex flex-wrap gap-2 z-10">
+            {site.tags.slice(0, 2).map((tag, index) => (
+              <span
+                key={index}
+                className="text-tiny font-medium py-[1px] px-2 rounded-[4px] bg-primary-700 text-primary-200"
+              >
+                {tag}
+              </span>
+            ))}
+          </div>
+        )}
+      </div>
+
       <div className="p-4">
         <div className="flex justify-between items-center">
           <div
