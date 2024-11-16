@@ -9,7 +9,7 @@ import ListItem from "./list-item";
 import SiteTags from "./site-tags";
 
 import { Site } from "@/models/site";
-import IframeEmbed from "@/components/common/Iframe"; // 引入上面创建的 IframeEmbed 组件
+import IframeEmbed from "@/components/common/Iframe";
 import RatingComponent from "@/components/common/RatingComponent";
 
 export default function SiteDetail({ site }: { site: Site }) {
@@ -31,7 +31,7 @@ export default function SiteDetail({ site }: { site: Site }) {
           {site.descriptionIcon && (
             <Image
               alt={site.name}
-              className="rounded-full border float-left m-15" // 设置右边间距 mr-8
+              className="rounded-full border float-left m-15"
               height={75}
               src={site.descriptionIcon}
               width={75}
