@@ -7,6 +7,11 @@ export default function IframeEmbed({
   title,
   iconImage,
   buttonText = "Play the game",
+}: {
+  src: string;
+  title: string;
+  iconImage: string; // or another type if it’s not just a string
+  buttonText?: string; // optional prop
 }) {
   const [isIframeLoaded, setIsIframeLoaded] = useState(false);
   const [isHovered, setIsHovered] = useState(false);
