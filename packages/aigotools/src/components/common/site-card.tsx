@@ -1,7 +1,7 @@
 "use client";
 import clsx from "clsx";
 import { Image } from "@nextui-org/react";
-import { ExternalLink, ThumbsUpIcon } from "lucide-react";
+import { ThumbsUpIcon } from "lucide-react";
 import { useState } from "react";
 
 import { Site } from "@/models/site";
@@ -55,7 +55,7 @@ export default function SiteCard({ site }: { site: Site }) {
             )}
           >
             <h3 className="text-lg">{site.name}</h3>
-            <ExternalLink size={16} />
+            {/* <ExternalLink size={16} /> */}
           </div>
           {site.voteCount > 0 && (
             <div className="flex items-center text-primary-500 gap-1">
