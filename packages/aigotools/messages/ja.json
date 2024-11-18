@@ -1,0 +1,306 @@
+{
+  "header": {
+    "submit": "提出",
+    "login": "ログイン",
+    "admin": "管理者",
+    "dashboard": "ダッシュボード",
+    "blog": "ブログ",
+    "about": "关于我们",
+    "home": "ホーム"
+  },
+  "footer": {
+    "slogan": "あなたの好みに合わせて10000以上の人気ゲームを検索",
+    "submitATool": "ゲームを提出",
+    "aboutUs": "关于我们",
+    "contactUs": "联系我们",
+    "privacy": "プライバシー",
+    "latestSubmit": "最新のゲーム",
+    "featured": "おすすめゲーム",
+    "blogs": "ゲーミングブログ"
+  },
+  "upload": {
+    "uploadFailed": "ファイルのアップロードに失敗しました"
+  },
+  "dashboard": {
+    "siteManage": "サイト管理",
+    "reviewManage": "レビュー管理",
+    "categoryManage": "カテゴリー管理",
+    "blogManage": "ブログ管理"
+  },
+  "index": {
+    "slogan": "あなたの好みに合わせて10000以上の人気ゲームを検索",
+    "subTitle": "究極のゲームリストを発見し、探求し、楽しむ。お気に入りのゲームを提出したり、他の人が新しいゲームを見つける手助けをしましょう。",
+    "featured": "おすすめゲーム",
+    "latest": "最新のゲーム",
+    "searchPlaceholder": "お気に入りのゲームを検索...",
+    "clearAll": "すべてクリア",
+    "more": "もっと +"
+  },
+  "metadata": {
+    "title": "GameNav.org",
+    "description": "GameNavは、あらゆるジャンルの最高のゲームを発見するためのプラットフォームです。どのプラットフォームでも楽しむことができる新旧のゲームを見つけ、評価し、探求しましょう。",
+    "keywords": "ゲームディレクトリ, 人気ゲームリスト, 最高のゲーム, ゲーム検索エンジン, トップゲーム, 新しいゲームリリース"
+  },
+  "site": {
+    "categories": "カテゴリー",
+    "users": "このツールのユーザー",
+    "pricings": "価格設定",
+    "topFeatures": "主要機能",
+    "usecases": "使用例",
+    "visitSite": "サイトを訪問",
+    "upvote": "投票",
+    "relatedTools": "関連AIツール",
+    "voteFailed": "投票に失敗しました",
+    "links": "リンク",
+    "loginPage": "ログイン",
+    "registerPage": "登録",
+    "docPage": "ドキュメント",
+    "pricingPage": "価格設定",
+    "relatedSearchs": "関連検索"
+  },
+  "search": {
+    "metadata": {
+      "title": "ゲーム検索"
+    },
+    "result": "検索結果",
+    "empty": "申し訳ありませんが、ゲームは見つかりませんでした...",
+    "loadMore": "さらにゲームを読み込む",
+    "loadFailed": "ゲームの読み込みに失敗しました"
+  },
+  "submit": {
+    "metadata": {
+      "title": "ゲームを提出"
+    },
+    "title": "ゲームを提出",
+    "subTitle": "お気に入りのゲームを1分で追加",
+    "websiteName": "ゲーム名",
+    "websiteNamePlaceholder": "ゲーム名を入力",
+    "websiteUrl": "ゲームウェブサイトURL",
+    "websiteUrlPlaceholder": "https://examplegame.com",
+    "submit": "提出",
+    "requireName": "ゲーム名が必要です",
+    "requireUrl": "ゲームURLが必要です",
+    "successSubmit": "ゲームの提出が成功しました",
+    "failSubmit": "ゲームの提出に失敗しました。再度試してみてください、または私たちに連絡してください",
+    "request": "無料でリストに追加するために、{code}をゲームのホームペーージに追加してください！"
+  },
+  "reviewManage": {
+    "title": "レビュー管理",
+    "siteName": "サイト名",
+    "url": "URL",
+    "userEmail": "ユーザーのメールアドレス",
+    "state": "状態",
+    "inputSearch": "レビューを検索",
+    "selectState": "レビューの状態を選択",
+    "createdAt": "作成日",
+    "updatedAt": "更新日",
+    "operation": "操作",
+    "failSearch": "レビューの検索に失敗しました",
+    "failUpdate": "レビューの更新に失敗しました",
+    "approve": "承認",
+    "reject": "拒否",
+    "approved": "承認済み",
+    "rejected": "拒否済み",
+    "pending": "保留中",
+    "withdraw": "取り下げ"
+  },
+  "siteManage": {
+    "siteName": "サイト名",
+    "index": "インデックス",
+    "url": "URL",
+    "title": "サイト管理",
+    "weight": "重み",
+    "search": "検索",
+    "operation": "操作",
+    "category": "カテゴリー",
+    "inputSearch": "サイトを検索",
+    "selectState": "サイトの状態を選択",
+    "selectProcess": "処理ステージを選択",
+    "failSearch": "サイトの検索に失敗しました",
+    "state": "状態",
+    "createdAt": "作成日",
+    "updatedAt": "更新日",
+    "edit": "編集",
+    "publish": "公開",
+    "unpublish": "非公開",
+    "published": "公開済み",
+    "unpublished": "非公開",
+    "failTriggerPublish": "公開状態の更新に失敗しました",
+    "processStage": "処理ステージ",
+    "pending": "保留中",
+    "processing": "処理中",
+    "success": "成功",
+    "fail": "失敗",
+    "new": "新規",
+    "dispatchFailed": "派遣に失敗しました",
+    "stopFailed": "停止に失敗しました",
+    "dispatch": "派遣",
+    "dispatchAll": "すべて派遣",
+    "stop": "停止",
+    "stopAll": "すべて停止",
+    "delete": "削除",
+    "deleteFailed": "削除に失敗しました"
+  },
+  "siteEdit": {
+    "newTitle": "新規",
+    "updateTitle": "更新",
+    "url": "URL",
+    "name": "名前",
+    "featured": "おすすめ",
+    "weight": "重み",
+    "snapshot": "スナップショット",
+    "desceription": "説明",
+    "pricingType": "価格設定タイプ",
+    "categories": "カテゴリー",
+    "images": "画像",
+    "features": "機能",
+    "usecases": "使用例",
+    "users": "ユーザー",
+    "links": "リンク",
+    "loginPage": "ログイン",
+    "registerPage": "登録",
+    "docPage": "ドキュメント",
+    "pricingPage": "価格設定",
+    "relatedSearchs": "関連検索",
+    "pricings": "価格設定",
+    "saveFailed": "サイトの保存に失敗しました",
+    "save": "保存"
+  },
+  "categoryManage": {
+    "title": "カテゴリー管理",
+    "new": "新規",
+    "inputSearch": "カテゴリー名を検索",
+    "categoryName": "カテゴリー名",
+    "categoryLevel": "カテゴリーレベル",
+    "topLevel": "トップレベル",
+    "secondaryLevel": "サブレベル",
+    "parentCategory": "親カテゴリー",
+    "weight": "重み",
+    "updatedAt": "更新日",
+    "operation": "操作",
+    "failSearch": "カテゴリーの検索に失敗しました",
+    "failUpdate": "カテゴリーの更新に失敗しました",
+    "failDelete": "カテゴリーの削除に失敗しました",
+    "featured": "おすすめ",
+    "edit": "編集",
+    "delete": "削除"
+  },
+  "categoryEdit": {
+    "newTitle": "新規",
+    "updateTitle": "更新",
+    "parentCategory": "親カテゴリー",
+    "categoryName": "カテゴリー名",
+    "categoryIcon": "カテゴリーアイコン",
+    "saveFailed": "カテゴリーの保存に失敗しました",
+    "save": "保存",
+    "featured": "おすすめ",
+    "weight": "重み"
+  },
+  "categories": {
+    "metadata": {
+      "title": "カテゴリー"
+    },
+    "loadFailed": "読み込みに失敗しました"
+  },
+  "faq": {
+    "title": "よくある質問",
+    "description": "私たちのゲームディレクトリに関する一般的な質問をいくつか紹介します。",
+    "faqs": [
+      {
+        "title": "新しいゲームを見つけるにはどうすればよいですか？",
+        "content": "ジャンル、プラットフォーム、または人気度別に数千のゲームをブラウズできる検索機能を使用してください。"
+      },
+      {
+        "title": "自分のゲームを提出できますか？",
+        "content": "はい！ページの上部にある「ゲームを提出」ボタンを使用して、自分のゲームを提出できます。"
+      },
+      {
+        "title": "ゲームを掲載するのに費用はかかりますか？",
+        "content": "いいえ、当サイトでのゲームの掲載は完全に無料です。"
+      },
+      {
+        "title": "どのようにゲームを評価できますか？",
+        "content": "評価したいゲームをクリックし、ゲームの詳細ページで評価機能を使用してください。"
+      },
+      {
+        "title": "ウェブサイトに機能を提案できますか？",
+        "content": "はい、フィードバックをお待ちしております！ご意見をお寄せください。"
+      }
+    ]
+  },
+  "blogManage": {
+    "title": "ブログ管理",
+    "new": "新規",
+    "inputSearch": "ブログ名を検索",
+    "name": "タイトル",
+    "author": "著者",
+    "slug": "スラッグ",
+    "views": "閲覧数",
+    "publishedAt": "公開日",
+    "updatedAt": "更新日",
+    "featured": "おすすめ",
+    "content": "コンテンツ",
+    "description": "説明",
+    "icon": "アイコン",
+    "edit": "編集",
+    "delete": "削除",
+    "categoryFilter": "",
+    "operation": "操作",
+    "failSearch": "ブログの検索に失敗しました"
+  },
+  "blogEdit": {
+    "newTitle": "新規",
+    "updateTitle": "更新",
+    "parentCategory": "親カテゴリー",
+    "name": "タイトル",
+    "author": "著者",
+    "slug": "スラッグ",
+    "views": "閲覧数",
+    "publishedAt": "公開日",
+    "updatedAt": "更新日",
+    "content": "コンテンツ",
+    "description": "説明",
+    "image": "画像",
+    "saveFailed": "ブログの保存に失敗しました",
+    "save": "保存",
+    "cancel": "キャンセル",
+    "featured": "おすすめ",
+    "weight": "重み"
+  },
+  "blog": {
+    "metadata": {
+      "title": "ブログ"
+    },
+    "lastPost": "最新の投稿",
+    "blogPosts": "ブログ記事",
+    "viewArticle": "記事を読む",
+    "seeAllPosts": "すべての投稿を見る"
+  },
+  "about": {
+    "metadata": {
+      "title": "关于我们"
+    },
+    "author": "Daniel Brown",
+    "siteUrl": "https://freakytextgenerator.us",
+    "email": "info@freakytextgenerator.us",
+    "github": "https://github.com",
+    "x": "https://twitter.com/x",
+    "facebook": "https://facebook.com",
+    "youtube": "https://youtube.com",
+    "linkedin": "https://www.linkedin.com",
+    "threads": "https://www.threads.net",
+    "instagram": "https://www.instagram.com",
+    "occupation": "大気科学教授",
+    "company": "スタンフォード大学",
+    "avatar": "/avatar.png",
+    "children": "<p>Daniel Brownは、著名なスタンフォードAIラボのコンピュータサイエンス教授です。10年以上の経験を持つ彼は、Java、Python、JavaScriptに精通したフルスタック開発者であり、プロジェクトに創造性と技術力を融合させることで知られています。</p> <p>彼はその分野のリーダーとして、革新的な推進力となり、可能な限りの境界を押し広げています。彼は継続的な学習と成長を促進する協力的な環境を作り出すことにコミットしています。彼のコードレビューやメンターシップへの貢献は、多くの若手開発者のキャリアを形成するのに役立っています。</p> <p>職業生活以外でも、Danielはテックコミュニティの一員として、オープンソースへの貢献やカンファレンスでのプレゼンテーションを通じて同僚と交流しています。また、Raspberry Piプロジェクトには手を動かす熱心なエントゥージアストであり、AIや機械学習の次の大きな進歩を探しています。</p>"
+  },
+  "notFound": {
+    "metadata": {
+      "title": "404"
+    },
+    "description1": "申し訳ありませんが、ゲームページを見つけることができませんでした。",
+    "description2": "でも心配しないでください、ホームペーージでさらに多くのゲームを探索できます。",
+    "backto": "ホームペーージに戻る"
+  }
+}

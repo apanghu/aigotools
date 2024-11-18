@@ -1,0 +1,115 @@
+{
+  "header": {
+    "submit": "Enviar",
+    "login": "Iniciar sesión",
+    "admin": "Administrador",
+    "dashboard": "Tablero",
+    "blog": "Blog",
+    "about": "Acerca de",
+    "home": "Inicio"
+  },
+  "footer": {
+    "slogan": "Busca más de 10000 juegos populares según tus preferencias",
+    "submitATool": "Enviar un juego",
+    "aboutUs": "Sobre nosotros",
+    "contactUs": "Contáctanos",
+    "privacy": "Privacidad",
+    "latestSubmit": "Últimos juegos",
+    "featured": "Juegos destacados",
+    "blogs": "Blogs de juegos"
+  },
+  "upload": {
+    "uploadFailed": "Error al cargar el archivo"
+  },
+  "dashboard": {
+    "siteManage": "Gestión del sitio",
+    "reviewManage": "Gestión de reseñas",
+    "categoryManage": "Gestión de categorías",
+    "blogManage": "Gestión de blogs"
+  },
+  "index": {
+    "slogan": "Busca más de 10000 juegos populares según tus preferencias",
+    "subTitle": "Descubre la lista definitiva de juegos para explorar y disfrutar. Envía tu juego favorito o ayuda a otros a encontrar nuevos juegos.",
+    "featured": "Juegos destacados",
+    "latest": "Últimos juegos",
+    "searchPlaceholder": "Busca tu juego favorito...",
+    "clearAll": "Borrar todo",
+    "more": "Más +"
+  },
+  "metadata": {
+    "title": "GameNav.org",
+    "description": "GameNav es tu plataforma para descubrir los mejores juegos en todos los géneros. Encuentra, puntúa y explora nuevos juegos para disfrutar en cualquier plataforma.",
+    "keywords": "directorio de juegos, lista de juegos populares, mejores juegos, motor de búsqueda de juegos, juegos principales, nuevos lanzamientos de juegos"
+  },
+  "site": {
+    "categories": "Categorías",
+    "users": "Usuarios de esta herramienta",
+    "pricings": "Precios",
+    "topFeatures": "Principales características",
+    "usecases": "Casos de uso",
+    "visitSite": "Visitar el sitio",
+    "upvote": "Votar positivo",
+    "relatedTools": "Herramientas AI relacionadas",
+    "voteFailed": "Error al votar",
+    "links": "Enlaces",
+    "loginPage": "Iniciar sesión",
+    "registerPage": "Registrarse",
+    "docPage": "Documentación",
+    "pricingPage": "Precios",
+    "relatedSearchs": "Búsquedas relacionadas"
+  },
+  "search": {
+    "metadata": { "title": "Buscar juegos" },
+    "result": "Resultados de la búsqueda",
+    "empty": "Vaya, no se encontraron juegos...",
+    "loadMore": "Cargar más juegos",
+    "loadFailed": "Error al cargar juegos"
+  },
+  "submit": {
+    "metadata": { "title": "Enviar tu juego" },
+    "title": "Enviar tu juego",
+    "subTitle": "Agrega tu juego favorito en un minuto",
+    "websiteName": "Nombre del juego",
+    "websiteNamePlaceholder": "Introduce el nombre del juego",
+    "websiteUrl": "URL del juego",
+    "websiteUrlPlaceholder": "https://examplegame.com",
+    "submit": "Enviar",
+    "requireName": "El nombre del juego es obligatorio",
+    "requireUrl": "La URL del juego es obligatoria",
+    "successSubmit": "Juego enviado con éxito",
+    "failSubmit": "Error al enviar el juego, por favor vuelve a intentarlo o contáctanos",
+    "request": "¡Añade {code} a la página de inicio de tu juego para listar de forma gratuita!"
+  },
+  "faq": {
+    "title": "Preguntas frecuentes",
+    "description": "Aquí hay algunas preguntas comunes sobre nuestro directorio de juegos.",
+    "faqs": [
+      {
+        "title": "¿Cómo puedo encontrar nuevos juegos para jugar?",
+        "content": "Usa nuestra función de búsqueda para explorar miles de juegos por género, plataforma o popularidad."
+      },
+      {
+        "title": "¿Puedo enviar mi propio juego?",
+        "content": "¡Sí! Puedes enviar tu juego usando el botón 'Enviar un juego' en la parte superior de la página."
+      },
+      {
+        "title": "¿Hay algún costo por listar mi juego?",
+        "content": "No, listar tu juego en nuestro sitio es completamente gratuito."
+      },
+      {
+        "title": "¿Cómo calificar un juego?",
+        "content": "Haz clic en el juego que quieres calificar y luego usa la función de calificación en la página de detalles del juego."
+      },
+      {
+        "title": "¿Puedo sugerir funciones para el sitio web?",
+        "content": "Sí, ¡bienvenidas tus sugerencias! Por favor, contáctanos para enviarlas."
+      }
+    ]
+  },
+  "notFound": {
+    "metadata": { "title": "404" },
+    "description1": "Lo sentimos, no pudimos encontrar la página del juego.",
+    "description2": "Pero no te preocupes, explora más juegos en nuestra página principal.",
+    "backto": "Volver a la página principal"
+  }
+}

@@ -1,0 +1,115 @@
+{
+  "header": {
+    "submit": "Einreichen",
+    "login": "Anmelden",
+    "admin": "Administrator",
+    "dashboard": "Instrumententafel",
+    "blog": "Blog",
+    "about": "Über uns",
+    "home": "Startseite"
+  },
+  "footer": {
+    "slogan": "Suche nach 10000+ beliebten Spielen nach deinen Vorlieben",
+    "submitATool": "Ein Spiel einreichen",
+    "aboutUs": "Über uns",
+    "contactUs": "Kontaktiere uns",
+    "privacy": "Datenschutz",
+    "latestSubmit": "Neueste Spiele",
+    "featured": "Hervorgehobene Spiele",
+    "blogs": "Spiel-Blogs"
+  },
+  "upload": {
+    "uploadFailed": "Fehler beim Hochladen der Datei"
+  },
+  "dashboard": {
+    "siteManage": "Website-Verwaltung",
+    "reviewManage": "Bewertungsverwaltung",
+    "categoryManage": "Kategorien-Verwaltung",
+    "blogManage": "Blog-Verwaltung"
+  },
+  "index": {
+    "slogan": "Suche nach 10000+ beliebten Spielen nach deinen Vorlieben",
+    "subTitle": "Entdecke die ultimative Liste von Spielen, die du erkunden und genießen kannst. Reiche dein Lieblingsspiel ein oder helfe anderen, neue Spiele zu finden.",
+    "featured": "Hervorgehobene Spiele",
+    "latest": "Neueste Spiele",
+    "searchPlaceholder": "Suche nach deinem Lieblingsspiel...",
+    "clearAll": "Alles löschen",
+    "more": "Mehr +"
+  },
+  "metadata": {
+    "title": "GameNav.org",
+    "description": "GameNav ist deine Plattform, um die besten Spiele aller Genres zu entdecken. Finde, bewerte und erkunde neue Spiele, die du auf jeder Plattform genießen kannst.",
+    "keywords": "Spieledirectory, beliebte Spiele-Liste, beste Spiele, Spiele-Suchmaschine, Top-Spiele, neue Spielveröffentlichungen"
+  },
+  "site": {
+    "categories": "Kategorien",
+    "users": "Benutzer dieses Tools",
+    "pricings": "Preise",
+    "topFeatures": "Top-Features",
+    "usecases": "Verwendungszwecke",
+    "visitSite": "Website besuchen",
+    "upvote": "Hochstimmen",
+    "relatedTools": "Verwandte KI-Tools",
+    "voteFailed": "Abstimmung fehlgeschlagen",
+    "links": "Links",
+    "loginPage": "Anmelden",
+    "registerPage": "Registrieren",
+    "docPage": "Dokumentation",
+    "pricingPage": "Preise",
+    "relatedSearchs": "Verwandte Suchen"
+  },
+  "search": {
+    "metadata": { "title": "Spiele suchen" },
+    "result": "Suchergebnisse",
+    "empty": "Ups, keine Spiele gefunden...",
+    "loadMore": "Mehr Spiele laden",
+    "loadFailed": "Fehler beim Laden der Spiele"
+  },
+  "submit": {
+    "metadata": { "title": "Spiel einreichen" },
+    "title": "Spiel einreichen",
+    "subTitle": "Füge dein Lieblingsspiel in einer Minute hinzu",
+    "websiteName": "Spielname",
+    "websiteNamePlaceholder": "Spielname eingeben",
+    "websiteUrl": "Spiel-Website-URL",
+    "websiteUrlPlaceholder": "https://beispielspiel.com",
+    "submit": "Einreichen",
+    "requireName": "Spielname ist erforderlich",
+    "requireUrl": "Spiel-URL ist erforderlich",
+    "successSubmit": "Spiel erfolgreich eingereicht",
+    "failSubmit": "Fehler beim Einreichen des Spiels, bitte versuche es erneut oder kontaktiere uns",
+    "request": "Füge {code} auf der Homepage deines Spiels für eine kostenlose Listung hinzu!"
+  },
+  "faq": {
+    "title": "Häufig gestellte Fragen",
+    "description": "Hier sind einige häufige Fragen zu unserem Spielverzeichnis.",
+    "faqs": [
+      {
+        "title": "Wie finde ich neue Spiele zum Spielen?",
+        "content": "Nutze unsere Suchfunktion, um Tausende von Spielen nach Genre, Plattform oder Popularität zu durchsuchen."
+      },
+      {
+        "title": "Kann ich mein eigenes Spiel einreichen?",
+        "content": "Ja! Du kannst dein Spiel mit dem Button 'Spiel einreichen' oben auf der Seite einreichen."
+      },
+      {
+        "title": "Fallen Kosten an, um mein Spiel aufzulisten?",
+        "content": "Nein, das Auflisten deines Spiels auf unserer Seite ist völlig kostenlos."
+      },
+      {
+        "title": "Wie kann ich ein Spiel bewerten?",
+        "content": "Klicke auf das Spiel, das du bewerten möchtest, und benutze dann die Bewertungsfunktion auf der Detailseite des Spiels."
+      },
+      {
+        "title": "Kann ich Funktionen für die Website vorschlagen?",
+        "content": "Ja, wir freuen uns über Feedback! Bitte kontaktiere uns mit deinen Vorschlägen."
+      }
+    ]
+  },
+  "notFound": {
+    "metadata": { "title": "404" },
+    "description1": "Entschuldigung, wir konnten die Spieleseite nicht finden.",
+    "description2": "Aber keine Sorge, entdecke mehr Spiele auf unserer Startseite.",
+    "backto": "Zurück zur Startseite"
+  }
+}
