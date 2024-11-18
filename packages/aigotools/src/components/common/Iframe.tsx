@@ -17,7 +17,6 @@ export default function IframeEmbed({
 
   return (
     <div className="relative w-full max-w-5xl aspect-video rounded-2xl overflow-hidden shadow-xl bg-gradient-to-br from-gray-800 via-gray-700 to-gray-900">
-      {/* 加载 iframe */}
       {isIframeLoaded ? (
         <iframe
           allowFullScreen
@@ -27,7 +26,6 @@ export default function IframeEmbed({
         />
       ) : (
         <div className="flex flex-col items-center justify-center w-full h-full p-4">
-          {/* 游戏图标 */}
           <div
             className="relative w-40 h-40 md:w-48 md:h-48 lg:w-56 lg:h-56 rounded-full overflow-hidden shadow-lg animate-pulse hover:animate-none transition-all duration-300 cursor-pointer"
             onMouseEnter={() => setIsHovered(true)}
@@ -38,7 +36,6 @@ export default function IframeEmbed({
               className="w-full h-full object-cover"
               src={iconImage}
             />
-            {/* 悬停时显示游戏名称 */}
             {isHovered && (
               <div className="absolute inset-0 flex items-center justify-center bg-black bg-opacity-60 text-white font-semibold text-lg md:text-xl lg:text-2xl">
                 {title}
@@ -46,7 +43,6 @@ export default function IframeEmbed({
             )}
           </div>
 
-          {/* 播放游戏按钮 */}
           <button
             className="mt-6 px-6 py-3 text-white bg-blue-500 hover:bg-blue-600 rounded-full text-lg md:text-xl font-bold shadow-md transition-transform transform hover:scale-105 focus:outline-none focus:ring-4 focus:ring-blue-300"
             onClick={handleButtonClick}
