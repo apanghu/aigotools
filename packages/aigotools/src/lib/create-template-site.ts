@@ -29,6 +29,9 @@ export const createTemplateSite = (site: Partial<Site> = {}) => {
     createdAt: Date.now(),
     updatedAt: Date.now(),
     processStage: ProcessStage.pending,
+    descriptionIcon: "",
+    rating: 0,
+    tags: [],
   };
 
   return { newSite, ...site } as Site;

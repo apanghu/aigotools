@@ -12,6 +12,7 @@ export const createTemplateBlog = (blog: Partial<Blog> = {}) => {
     createdAt: Date.now(),
     updatedAt: Date.now(),
     publishedAt: Date.now(),
+    description: "",
   };
 
   return {

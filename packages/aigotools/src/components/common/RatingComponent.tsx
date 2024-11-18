@@ -1,7 +1,8 @@
 import React from "react";
 
+import { Site } from "@/models/site";
 import StarRating from "@/components/common/StarRating";
-function RatingComponent({ site }) {
+function RatingComponent({ site }: { site: Site }) {
   return (
     <div>
       <span className="rating-info">

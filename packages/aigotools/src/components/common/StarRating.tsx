@@ -1,6 +1,12 @@
 import React from "react";
 // 星星评分组件
-const StarRating = ({ rating, maxRating = 5 }) => {
+const StarRating = ({
+  rating,
+  maxRating = 5,
+}: {
+  rating: number;
+  maxRating: number;
+}) => {
   const fullStars = Math.floor(rating); // 完整的星星
   const hasHalfStar = rating % 1 >= 0.5; // 是否有半颗星
   const emptyStars = maxRating - fullStars - (hasHalfStar ? 1 : 0); // 空星
