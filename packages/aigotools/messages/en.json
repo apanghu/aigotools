@@ -9,14 +9,14 @@
     "home": "Home"
   },
   "footer": {
-    "slogan": "Search 10000+ Useful AI Tools By What You Need",
-    "submitATool": "Submit a Tool",
+    "slogan": "Search 10000+ Popular Games By Your Preference",
+    "submitATool": "Submit a Game",
     "aboutUs": "About Us",
     "contactUs": "Contact Us",
     "privacy": "Privacy",
-    "latestSubmit": "Latest",
-    "featured": "Featured",
-    "blogs": "Blogs"
+    "latestSubmit": "Latest Games",
+    "featured": "Featured Games",
+    "blogs": "Gaming Blogs"
   },
   "upload": {
     "uploadFailed": "Upload file failed"
@@ -28,18 +28,18 @@
     "blogManage": "Blog Manage"
   },
   "index": {
-    "slogan": "Search 10000+ Useful AI Tools By What You Need",
-    "subTitle": "The Ultimate List of Websites to Launch and Promote Your Startup Online. For adding to the list or helping to submit for your product to the free list.",
-    "featured": "Featured",
-    "latest": "Latest",
-    "searchPlaceholder": "i want to write an article...",
+    "slogan": "Search 10000+ Popular Games By Your Preference",
+    "subTitle": "Discover the Ultimate List of Games to Explore and Enjoy. Submit your favorite game or help others find new games.",
+    "featured": "Featured Games",
+    "latest": "Latest Games",
+    "searchPlaceholder": "Search for your favorite game...",
     "clearAll": "Clear All",
     "more": "More +"
   },
   "metadata": {
-    "title": "aigotools.com",
-    "description": "AigoTools is a leading AI tools directory and search engine. AigoTools helps you discover the best AI tools,apps and services list and takes your personal and business productivity to the next level.",
-    "keywords": "Open source AI tools directory,AI tools directory, AI tool list, AI tools search engine, artificial inteligence applications,top ai tools, best ai tools directory, best ai tools, ai tools list"
+    "title": "GameNavigator.com",
+    "description": "GameNavigator is your go-to platform to discover the best games across all genres. Find, rate, and explore new games to enjoy on any platform.",
+    "keywords": "game directory, popular games list, best games, game search engine, top games, new game releases"
   },
   "site": {
     "categories": "Categories",
@@ -59,26 +59,26 @@
     "relatedSearchs": "Related Searchs"
   },
   "search": {
-    "metadata": { "title": "Search AI tools" },
-    "result": "Search Result",
-    "empty": "Oppos,no result...",
-    "loadMore": "Load More",
-    "loadFailed": "Load Failed"
+    "metadata": { "title": "Search Games" },
+    "result": "Search Results",
+    "empty": "Oops, no games found...",
+    "loadMore": "Load More Games",
+    "loadFailed": "Failed to Load Games"
   },
   "submit": {
-    "metadata": { "title": "Submit yout AI Tool" },
-    "title": "Submit yout AI Tool",
-    "subTitle": "Submit your website in one minute",
-    "websiteName": "Website Name",
-    "websiteNamePlaceholder": "AigoTools",
-    "websiteUrl": "Website Url",
-    "websiteUrlPlaceholder": "https://aigotools.com",
+    "metadata": { "title": "Submit Your Game" },
+    "title": "Submit Your Game",
+    "subTitle": "Add your favorite game in one minute",
+    "websiteName": "Game Name",
+    "websiteNamePlaceholder": "Enter game name",
+    "websiteUrl": "Game Website URL",
+    "websiteUrlPlaceholder": "https://examplegame.com",
     "submit": "Submit",
-    "requireName": "Name is requireed",
-    "requireUrl": "Url is requireed",
-    "successSubmit": "Success Submit",
-    "failSubmit": "Fail to submit, please retry or contact us",
-    "request": "Add {code} to your website homepage, and then you can submit your website successfully for free！"
+    "requireName": "Game name is required",
+    "requireUrl": "Game URL is required",
+    "successSubmit": "Game submitted successfully",
+    "failSubmit": "Failed to submit the game, please retry or contact us",
+    "request": "Add {code} to your game’s homepage for free listing!"
   },
   "reviewManage": {
     "title": "Review Manage",
@@ -198,39 +198,27 @@
   },
   "faq": {
     "title": "Frequently Asked Questions",
-    "description": "Here are some of the most frequently asked questions.",
+    "description": "Here are some common questions about our game directory.",
     "faqs": [
       {
-        "content": "The FREAKY TEXT GENERATOR is an online tool that allows you to create unique and visually striking text styles. Simply input your text, and it will be transformed into various freaky and creative designs.",
-        "title": "What is the FREAKY TEXT GENERATOR?"
+        "title": "How do I find new games to play?",
+        "content": "Use our search feature to browse through thousands of games by genre, platform, or popularity."
       },
       {
-        "content": "Just type or paste your text into the input box on our website, and select the style you want. The tool will instantly generate the text in the chosen freaky style, which you can then copy and use as needed.",
-        "title": "How do I use the FREAKY TEXT GENERATOR?"
+        "title": "Can I submit my own game?",
+        "content": "Yes! You can submit your game using the 'Submit a Game' button on the top of the page."
       },
       {
-        "content": "Yes, the FREAKY TEXT GENERATOR is completely free to use. There are no hidden charges or fees; you can create and download your text styles without any cost.",
-        "title": "Is the FREAKY TEXT GENERATOR free to use?"
+        "title": "Is there a fee to list my game?",
+        "content": "No, listing your game on our site is completely free."
       },
       {
-        "content": "No, the FREAKY TEXT GENERATOR is a web-based tool, so there's no need to download any software. You can access and use it directly from your web browser.",
-        "title": "Do I need to download any software to use the FREAKY TEXT GENERATOR?"
+        "title": "How can I rate a game?",
+        "content": "Click on the game you want to rate, then use the rating feature on the game’s detail page."
       },
       {
-        "content": "Yes, you can use the generated text for personal and commercial purposes. There are no restrictions on how you use the text styles created with the FREAKY TEXT GENERATOR.",
-        "title": "Can I use the generated text for commercial purposes?"
-      },
-      {
-        "content": "There might be some practical limitations based on the tool's design, but in general, the FREAKY TEXT GENERATOR can handle reasonably long texts. For very long texts, you may need to generate and style them in smaller segments.",
-        "title": "Are there any limitations on the text length?"
-      },
-      {
-        "content": "We continuously update the FREAKY TEXT GENERATOR with new and creative text styles. Check back regularly for the latest additions and keep your text looking fresh and unique!",
-        "title": "How often are new text styles added?"
-      },
-      {
-        "content": "Absolutely! We welcome suggestions and feedback. If you have ideas for new text styles, please contact us through our website's feedback form or social media channels.",
-        "title": "Can I suggest new text styles for the FREAKY TEXT GENERATOR?"
+        "title": "Can I suggest features for the website?",
+        "content": "Yes, we welcome feedback! Please contact us with your suggestions."
       }
     ]
   },
@@ -299,8 +287,8 @@
   },
   "notFound": {
     "metadata": { "title": "404" },
-    "description1": "Sorry we couldn't find this page.",
-    "description2": "But dont worry, you can find plenty of other things on our homepage.",
+    "description1": "Sorry, we couldn't find the game page.",
+    "description2": "But don’t worry, explore more games on our homepage.",
     "backto": "Back to HomePage"
   }
 }
