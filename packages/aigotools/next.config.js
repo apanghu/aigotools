@@ -23,6 +23,7 @@ const nextConfig = {
       "image.gamenav.org",
     ],
   },
+  output: "export",
 };
 
 const withNextIntl = createNextIntlPlugin();
