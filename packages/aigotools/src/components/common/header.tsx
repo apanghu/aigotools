@@ -68,7 +68,6 @@ export default function Header({ className }: { className?: string }) {
           className="border-r border-gray-300 pr-4 space-x-2 
                   hover:text-blue-400 transition hidden sm:flex"
           href={"/"}
-          target="_blank"
         >
           {t("home")}
         </Link>
@@ -76,7 +75,6 @@ export default function Header({ className }: { className?: string }) {
           className="border-r border-gray-300 pr-4 space-x-2 
                   hover:text-blue-400 transition hidden sm:flex"
           href={"/blog"}
-          target="_blank"
         >
           {t("blog")}
         </Link>
@@ -84,7 +82,6 @@ export default function Header({ className }: { className?: string }) {
           className="border-r border-gray-300 pr-4 space-x-2 
                   hover:text-blue-400 transition hidden sm:flex"
           href={"/about"}
-          target="_blank"
         >
           {t("about")}
         </Link>
