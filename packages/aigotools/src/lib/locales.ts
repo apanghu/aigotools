@@ -12,10 +12,10 @@ export const Languages = [
     lang: "en",
     label: "🇺🇸 English",
   },
-  {
-    lang: "fr",
-    label: "🇫🇷 Français",
-  },
+  // {
+  //   lang: "fr",
+  //   label: "🇫🇷 Français",
+  // },
   {
     lang: "es",
     label: "🇪🇸 Español",

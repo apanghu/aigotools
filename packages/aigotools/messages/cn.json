@@ -9,11 +9,11 @@
     "home": "首页"
   },
   "footer": {
-    "slogan": "根据您的喜好搜索10000+热门游戏",
+    "slogan": "根据您的偏好搜索 10000+ 流行游戏",
     "submitATool": "提交游戏",
     "aboutUs": "关于我们",
     "contactUs": "联系我们",
-    "privacy": "隐私政策",
+    "privacy": "隐私",
     "latestSubmit": "最新游戏",
     "featured": "精选游戏",
     "blogs": "游戏博客"
@@ -22,94 +22,244 @@
     "uploadFailed": "文件上传失败"
   },
   "dashboard": {
-    "siteManage": "网站管理",
+    "siteManage": "站点管理",
     "reviewManage": "评论管理",
     "categoryManage": "分类管理",
     "blogManage": "博客管理"
   },
   "index": {
-    "slogan": "根据您的喜好搜索10000+热门游戏",
-    "subTitle": "发现最全的游戏列表，探索并享受精彩游戏。提交您喜爱的游戏或帮助他人发现新游戏。",
+    "slogan": "根据您的偏好搜索 10000+ 流行游戏",
+    "subTitle": "发现终极游戏列表，探索和享受。提交您最喜欢的游戏或帮助其他人发现新游戏。",
     "featured": "精选游戏",
     "latest": "最新游戏",
-    "searchPlaceholder": "搜索您喜爱的游戏...",
+    "searchPlaceholder": "搜索您最喜欢的游戏...",
     "clearAll": "清除全部",
     "more": "更多 +"
   },
   "metadata": {
     "title": "GameNav.org",
-    "description": "GameNav是您发现各种类型最佳游戏的首选平台。查找、评价并探索适合您平台的新游戏。",
-    "keywords": "游戏目录, 热门游戏列表, 最佳游戏, 游戏搜索引擎, 顶级游戏, 新游戏发布"
+    "description": "GameNav 是您发现最佳游戏的平台，涵盖所有类型。找到、评分并探索可以在任何平台上享受的新游戏。",
+    "keywords": "游戏目录，流行游戏列表，最佳游戏，游戏搜索引擎，热门游戏，新游戏发布"
   },
   "site": {
-    "categories": "游戏分类",
-    "users": "玩家",
-    "pricings": "价格",
-    "topFeatures": "主要特色",
-    "usecases": "游戏场景",
-    "visitSite": "访问游戏网站",
+    "categories": "分类",
+    "users": "此工具的用户",
+    "pricings": "定价",
+    "topFeatures": "主要功能",
+    "usecases": "使用场景",
+    "visitSite": "访问网站",
     "upvote": "点赞",
-    "relatedTools": "相关游戏",
+    "relatedTools": "相关 AI 工具",
     "voteFailed": "投票失败",
     "links": "链接",
     "loginPage": "登录",
     "registerPage": "注册",
-    "docPage": "游戏文档",
-    "pricingPage": "游戏价格",
+    "docPage": "文档",
+    "pricingPage": "定价",
     "relatedSearchs": "相关搜索"
   },
   "search": {
     "metadata": { "title": "搜索游戏" },
     "result": "搜索结果",
-    "empty": "抱歉，未找到相关游戏...",
+    "empty": "抱歉，未找到游戏...",
     "loadMore": "加载更多游戏",
     "loadFailed": "加载游戏失败"
   },
   "submit": {
     "metadata": { "title": "提交您的游戏" },
     "title": "提交您的游戏",
-    "subTitle": "一分钟内添加您喜爱的游戏",
+    "subTitle": "一分钟内添加您最喜欢的游戏",
     "websiteName": "游戏名称",
-    "websiteNamePlaceholder": "输入游戏名称",
-    "websiteUrl": "游戏网站链接",
+    "websiteNamePlaceholder": "请输入游戏名称",
+    "websiteUrl": "游戏网站 URL",
     "websiteUrlPlaceholder": "https://examplegame.com",
     "submit": "提交",
-    "requireName": "游戏名称为必填项",
-    "requireUrl": "游戏链接为必填项",
+    "requireName": "游戏名称是必填项",
+    "requireUrl": "游戏 URL 是必填项",
     "successSubmit": "游戏提交成功",
-    "failSubmit": "提交失败，请重试或联系我们",
-    "request": "在您的游戏主页添加 {code} 以获得免费列出资格！"
+    "failSubmit": "提交游戏失败，请重试或联系我们",
+    "request": "在您的游戏主页添加 {code} 以免费列出！"
+  },
+  "reviewManage": {
+    "title": "评论管理",
+    "siteName": "站点名称",
+    "url": "网址",
+    "userEmail": "用户邮箱",
+    "state": "状态",
+    "inputSearch": "搜索评论",
+    "selectState": "评论状态",
+    "createdAt": "创建时间",
+    "updatedAt": "更新时间",
+    "operation": "操作",
+    "failSearch": "搜索评论失败",
+    "failUpdate": "更新评论失败",
+    "approve": "批准",
+    "reject": "拒绝",
+    "approved": "已批准",
+    "rejected": "已拒绝",
+    "pending": "待处理",
+    "withdraw": "撤回"
+  },
+  "siteManage": {
+    "siteName": "站点名称",
+    "index": "索引",
+    "url": "网址",
+    "title": "站点管理",
+    "weight": "权重",
+    "search": "搜索",
+    "operation": "操作",
+    "category": "分类",
+    "inputSearch": "搜索站点",
+    "selectState": "站点状态",
+    "selectProcess": "处理阶段",
+    "failSearch": "搜索站点失败",
+    "state": "状态",
+    "createdAt": "创建时间",
+    "updatedAt": "更新时间",
+    "edit": "编辑",
+    "publish": "发布",
+    "unpublish": "取消发布",
+    "published": "已发布",
+    "unpublished": "未发布",
+    "failTriggerPublish": "更新发布状态失败",
+    "processStage": "处理阶段",
+    "pending": "待处理",
+    "processing": "处理中",
+    "success": "成功",
+    "fail": "失败",
+    "new": "新建",
+    "dispatchFailed": "派发失败",
+    "stopFailed": "停止失败",
+    "dispatch": "派发",
+    "dispatchAll": "全部派发",
+    "stop": "停止",
+    "stopAll": "全部停止",
+    "delete": "删除",
+    "deleteFailed": "删除失败"
+  },
+  "siteEdit": {
+    "newTitle": "新建",
+    "updateTitle": "更新",
+    "url": "网址",
+    "name": "名称",
+    "featured": "精选",
+    "weight": "权重",
+    "snapshot": "快照",
+    "desceription": "描述",
+    "pricingType": "定价类型",
+    "categories": "分类",
+    "images": "图片",
+    "features": "功能",
+    "usecases": "使用场景",
+    "users": "用户",
+    "links": "链接",
+    "loginPage": "登录",
+    "registerPage": "注册",
+    "docPage": "文档",
+    "pricingPage": "定价",
+    "relatedSearchs": "相关搜索",
+    "pricings": "定价",
+    "saveFailed": "保存站点失败",
+    "save": "保存"
+  },
+  "categoryManage": {
+    "title": "分类管理",
+    "new": "新建",
+    "inputSearch": "搜索分类名称",
+    "categoryName": "分类名称",
+    "categoryLevel": "分类级别",
+    "topLevel": "顶级",
+    "secondaryLevel": "二级",
+    "parentCategory": "父分类",
+    "weight": "权重",
+    "updatedAt": "更新时间",
+    "operation": "操作",
+    "failSearch": "搜索分类失败",
+    "failUpdate": "更新分类失败",
+    "failDelete": "删除分类失败",
+    "featured": "精选",
+    "edit": "编辑",
+    "delete": "删除"
+  },
+  "categoryEdit": {
+    "newTitle": "新建",
+    "updateTitle": "更新",
+    "parentCategory": "父分类",
+    "categoryName": "分类名称",
+    "categoryIcon": "分类图标",
+    "saveFailed": "保存分类失败",
+    "save": "保存",
+    "featured": "精选",
+    "weight": "权重"
+  },
+  "categories": {
+    "metadata": { "title": "分类" },
+    "loadFailed": "加载失败"
   },
   "faq": {
     "title": "常见问题",
-    "description": "以下是一些关于我们游戏目录的常见问题。",
+    "description": "以下是关于我们的游戏目录的一些常见问题。",
     "faqs": [
       {
-        "title": "如何找到新游戏？",
+        "title": "如何找到新的游戏来玩？",
         "content": "使用我们的搜索功能，按类型、平台或人气浏览成千上万的游戏。"
       },
       {
         "title": "我可以提交自己的游戏吗？",
-        "content": "可以！您可以通过页面顶部的“提交游戏”按钮提交您的游戏。"
+        "content": "是的！您可以使用页面顶部的“提交游戏”按钮提交您的游戏。"
       },
       {
-        "title": "列出我的游戏需要收费吗？",
-        "content": "不，我们网站列出游戏是完全免费的。"
+        "title": "列出我的游戏需要费用吗？",
+        "content": "不，列出您的游戏是完全免费的。"
       },
       {
-        "title": "我如何评价一款游戏？",
-        "content": "点击您想评价的游戏，然后在游戏详情页使用评分功能。"
+        "title": "如何为游戏评分？",
+        "content": "点击您想要评分的游戏，然后在游戏详情页上使用评分功能。"
       },
       {
-        "title": "我可以建议网站的新功能吗？",
-        "content": "当然可以！我们欢迎您的反馈，请通过联系我们的渠道提出建议。"
+        "title": "我可以为网站建议功能吗？",
+        "content": "可以，我们欢迎反馈！请通过联系我们的方式提交您的建议。"
       }
     ]
   },
+  "blogManage": {
+    "title": "博客管理",
+    "new": "新建",
+    "inputSearch": "搜索博客名称",
+    "name": "标题",
+    "author": "作者",
+    "slug": "别名",
+    "views": "浏览量",
+    "publishedAt": "发布时间",
+    "updatedAt": "更新时间",
+    "category": "分类",
+    "operation": "操作",
+    "edit": "编辑",
+    "delete": "删除",
+    "createFailed": "创建博客失败",
+    "updateFailed": "更新博客失败",
+    "deleteFailed": "删除博客失败"
+  },
+  "about": {
+    "metadata": { "title": "关于" },
+    "author": "Daniel Brown",
+    "siteUrl": "https://freakytextgenerator.us",
+    "email": "info@freakytextgenerator.us",
+    "github": "https://github.com",
+    "x": "https://twitter.com/x",
+    "facebook": "https://facebook.com",
+    "youtube": "https://youtube.com",
+    "linkedin": "https://www.linkedin.com",
+    "threads": "https://www.threads.net",
+    "instagram": "https://www.instagram.com",
+    "occupation": "大气科学教授",
+    "company": "斯坦福大学",
+    "avatar": "/avatar.png",
+    "children": "<p>Daniel Brown 是斯坦福大学 AI 实验室的计算机科学教授，拥有十年的经验。他精通全栈开发，熟练掌握 Java、Python 和 JavaScript。他将创造力与技术专长相结合，为每个项目带来了独特的视角。</p> <p>作为该领域的领导者，Daniel 是创新的推动者，始终致力于推动软件技术的边界。他致力于创造一个促进持续学习和成长的协作环境。他对代码审查和指导的贡献帮助了许多有抱负的开发者成长。</p> <p>在个人生活方面，Daniel 是技术社区的活跃成员，通过开源贡献和会议演讲与同行互动。他也是一个 Raspberry Pi 项目的热衷爱好者，时刻关注人工智能和机器学习领域的最新进展。</p>"
+  },
   "notFound": {
-    "metadata": { "title": "404" },
-    "description1": "抱歉，我们找不到这个游戏页面。",
-    "description2": "别担心，您可以在我们的首页探索更多游戏。",
-    "backto": "返回首页"
+    "metadata": { "title": "未找到" },
+    "description": "抱歉，未能找到您请求的页面。",
+    "backHome": "返回首页"
   }
 }
