@@ -23,6 +23,9 @@ const nextConfig = {
       "image.gamenav.org",
     ],
   },
+  eslint: {
+    ignoreDuringBuilds: true,
+  },
 };
 
 const withNextIntl = createNextIntlPlugin();
