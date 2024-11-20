@@ -1,6 +1,6 @@
 "use client";
 
-import React, { useState } from "react";
+import React, { useState, useRef } from "react";
 
 export default function IframeEmbed({
   src,
@@ -10,18 +10,38 @@ export default function IframeEmbed({
 }: {
   src: string;
   title: string;
-  iconImage: string; // or another type if it’s not just a string
-  buttonText?: string; // optional prop
+  iconImage: string;
+  buttonText?: string;
 }) {
   const [isIframeLoaded, setIsIframeLoaded] = useState(false);
   const [isHovered, setIsHovered] = useState(false);
+  const [isFullscreen, setIsFullscreen] = useState(false);
+
+  const containerRef = useRef<HTMLDivElement>(null);
 
   const handleButtonClick = () => {
     setIsIframeLoaded(true);
   };
 
+  const toggleFullscreen = () => {
+    if (isFullscreen) {
+      document.exitFullscreen?.();
+      setIsFullscreen(false);
+    } else {
+      containerRef.current?.requestFullscreen?.();
+      setIsFullscreen(true);
+    }
+  };
+
   return (
-    <div className="relative w-full max-w-5xl aspect-video rounded-2xl overflow-hidden shadow-xl bg-gradient-to-br from-gray-800 via-gray-700 to-gray-900">
+    <div
+      ref={containerRef}
+      className={`relative w-full ${
+        isFullscreen ? "w-screen h-screen" : "max-w-5xl"
+      } aspect-video rounded-2xl overflow-hidden shadow-xl bg-gradient-to-br from-gray-800 via-gray-700 to-gray-900 ${
+        isFullscreen ? "fixed inset-0 z-50" : ""
+      }`}
+    >
       {isIframeLoaded ? (
         <iframe
           allowFullScreen
@@ -56,6 +76,14 @@ export default function IframeEmbed({
           </button>
         </div>
       )}
+
+      {/* Fullscreen Button */}
+      <button
+        className="absolute bottom-4 right-4 px-4 py-2 bg-gray-700 text-white rounded-full shadow-lg hover:bg-gray-600 text-sm md:text-base font-medium transition-all focus:outline-none focus:ring-4 focus:ring-gray-400"
+        onClick={toggleFullscreen}
+      >
+        {isFullscreen ? "Exit Fullscreen" : "Fullscreen"}
+      </button>
     </div>
   );
 }

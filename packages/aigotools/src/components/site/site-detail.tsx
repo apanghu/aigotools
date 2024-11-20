@@ -41,7 +41,6 @@ export default function SiteDetail({ site }: { site: Site }) {
             />
           )}
           <span>{site.name}</span>
-
           {/* <ExternalLink size={22} strokeWidth={3} /> */}
         </h2>
       </Link>
