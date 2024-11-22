@@ -91,6 +91,10 @@ export default function SiteDetail({ site }: { site: Site }) {
               src={site.url} // 游戏的 URL
               title={site.name}
             />
+            {/* Display this text only on mobile */}
+            <p className="mt-4 text-center text-sm  sm:hidden">
+              Tap on the picture above to launch the game.
+            </p>
           </div>
           {site.features.length > 0 && (
             <>

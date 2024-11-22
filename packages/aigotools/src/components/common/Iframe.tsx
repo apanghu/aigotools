@@ -27,16 +27,6 @@ export default function IframeEmbed({
     }
   };
 
-  const toggleFullscreen = () => {
-    if (isFullscreen) {
-      document.exitFullscreen?.();
-      setIsFullscreen(false);
-    } else {
-      containerRef.current?.requestFullscreen?.();
-      setIsFullscreen(true);
-    }
-  };
-
   return (
     <div
       ref={containerRef}
@@ -84,17 +74,6 @@ export default function IframeEmbed({
           </button>
         </div>
       )}
-
-      {/* Fullscreen Button: Hidden on small screens */}
-      {/* <button
-        className="absolute bottom-4 right-4 px-4 py-2 bg-gray-700 text-white rounded-full shadow-lg hover:bg-gray-600 text-sm md:text-base font-medium transition-all focus:outline-none focus:ring-4 focus:ring-gray-400 hidden sm:block"
-        onClick={(e) => {
-          e.stopPropagation(); // Prevent triggering `handleContainerClick`
-          toggleFullscreen();
-        }}
-      >
-        {isFullscreen ? "Exit Fullscreen" : "Fullscreen"}
-      </button> */}
     </div>
   );
 }
