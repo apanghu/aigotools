@@ -8,23 +8,23 @@ import { AppConfig } from "@/lib/config";
 
 const perSitemapCount = 2000;
 
-export async function generateSitemaps() {
-  await dbConnect();
+// export async function generateSitemaps() {
+//   await dbConnect();
 
-  const siteCount = await SiteModel.countDocuments({
-    state: SiteState.published,
-  });
+//   const siteCount = await SiteModel.countDocuments({
+//     state: SiteState.published,
+//   });
 
-  const siteMapCount = Math.ceil(siteCount / perSitemapCount);
+//   const siteMapCount = Math.ceil(siteCount / perSitemapCount);
 
-  const siteMapIds = new Array(siteMapCount).fill(0).map((_, id) => {
-    return {
-      id,
-    };
-  });
+//   const siteMapIds = new Array(siteMapCount).fill(0).map((_, id) => {
+//     return {
+//       id,
+//     };
+//   });
 
-  return [{ id: -1 }, ...siteMapIds];
-}
+//   return [{ id: -1 }, ...siteMapIds];
+// }
 
 export default async function sitemap({ id }: { id: number }) {
   const sitemapRoutes: MetadataRoute.Sitemap = [];
