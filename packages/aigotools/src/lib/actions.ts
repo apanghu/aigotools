@@ -757,7 +757,8 @@ export async function getAllCategories() {
       }
     >;
 
-    return grouped.filter((c) => c.children.length);
+    return grouped;
+    // return grouped.filter((c) => c.children.length);
   } catch (error) {
     console.log("Get all cateogry error", error);
     throw error;
