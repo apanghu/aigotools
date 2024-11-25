@@ -1,4 +1,4 @@
 # *
 User-agent: *
 Allow: /
-Sitemap: https://gamenav.org/sitemap.xml
+Sitemap: https://gamenav.org/sitemap/-1.xml

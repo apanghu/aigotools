@@ -11,8 +11,8 @@ import ListItem from "./list-item";
 import SiteTags from "./site-tags";
 
 import { Site } from "@/models/site";
-import IframeEmbed from "@/components/common/Iframe";
 import RatingComponent from "@/components/common/RatingComponent";
+import GameComponent from "@/components/common/GameComponent";
 
 export default function SiteDetail({ site }: { site: Site }) {
   const t = useTranslations("site");
@@ -85,16 +85,7 @@ export default function SiteDetail({ site }: { site: Site }) {
             {/* {site.desceription}  */}
           </div>
           <div className="mt-10">
-            <IframeEmbed
-              buttonText="Play the game"
-              iconImage={site.descriptionIcon} // Icon 图片的 URL
-              src={site.url} // 游戏的 URL
-              title={site.name}
-            />
-            {/* Display this text only on mobile */}
-            <p className="mt-4 text-center text-sm  sm:hidden">
-              Tap on the picture above to launch the game.
-            </p>
+            <GameComponent gametype={site.gameType} site={site} />
           </div>
           {site.features.length > 0 && (
             <>
