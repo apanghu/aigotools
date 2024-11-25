@@ -32,6 +32,7 @@ export const createTemplateSite = (site: Partial<Site> = {}) => {
     descriptionIcon: "",
     rating: 0,
     tags: [],
+    gameType: "",
   };
 
   return { newSite, ...site } as Site;
