@@ -20,12 +20,15 @@ export default function CategoriesList() {
   return (
     <div className="relative min-h-96 mt-8">
       <div className="mt-6 flex flex-wrap justify-center gap-2">
+        {" "}
+        {/* 更小的间距 */}
         {categories.map((category) => {
           return (
             <div key={category._id} className="mb-3">
+              {" "}
+              {/* 更小的底部间距 */}
               <h3 className="font-medium text-xl">
                 <CategoryTag
-                  key={category._id}
                   onClick={() => {
                     const url = `/search?c=${encodeURIComponent(
                       category.name
@@ -34,7 +37,7 @@ export default function CategoriesList() {
                     router.push(url);
                   }}
                 >
-                  {[category.name].filter(Boolean).join(" ")}
+                  {category.name}
                 </CategoryTag>
               </h3>
             </div>
