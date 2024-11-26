@@ -1,23 +1,9 @@
 "use client";
 import { useState } from "react";
 import { useTranslations, useLocale } from "next-intl";
-import { LogOut } from "lucide-react";
 import clsx from "clsx";
-import {
-  Avatar,
-  Button,
-  Dropdown,
-  DropdownItem,
-  DropdownMenu,
-  DropdownTrigger,
-} from "@nextui-org/react";
-import {
-  SignInButton,
-  SignedIn,
-  SignedOut,
-  useAuth,
-  useUser,
-} from "@clerk/nextjs";
+import { useAuth, useUser } from "@clerk/nextjs";
+import { Button } from "@nextui-org/react";
 
 import Container from "./container";
 import Logo from "./logo";
@@ -28,7 +14,6 @@ import { AppConfig } from "@/lib/config";
 import { Link } from "@/navigation";
 import LoadingModal from "@/components/common/LoadingModal";
 import MobileNav from "@/components/common/MobileNav";
-
 export default function Header({ className }: { className?: string }) {
   const t = useTranslations("header");
 
@@ -85,7 +70,16 @@ export default function Header({ className }: { className?: string }) {
         >
           {t("about")}
         </Link>
-        <SignedOut>
+        <Link
+          className="border-r border-gray-300 pr-4 space-x-2 
+                  hover:text-blue-400 transition hidden sm:flex"
+          href={"/search"}
+        >
+          <Button className="font-semibold" color="primary" size="sm">
+            {t("discover")}
+          </Button>
+        </Link>
+        {/* <SignedOut>
           <SignInButton forceRedirectUrl={forceRedirectUrl} mode="modal">
             <Button className="font-semibold" color="primary" size="sm">
               {t("submit")}
@@ -138,7 +132,7 @@ export default function Header({ className }: { className?: string }) {
               </DropdownItem>
             </DropdownMenu>
           </Dropdown>
-        </SignedIn>
+        </SignedIn> */}
         <ThemeSwitcher />
         <LanguageSwitcher />
         {/* mobile */}
