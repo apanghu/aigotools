@@ -6,7 +6,7 @@ import Link from "next/link";
 import clsx from "clsx";
 import { useState } from "react";
 
-import VoteButton from "./vote-button";
+//import VoteButton from "./vote-button";
 import ListItem from "./list-item";
 import SiteTags from "./site-tags";
 
@@ -181,7 +181,7 @@ export default function SiteDetail({ site }: { site: Site }) {
               {t("visitSite")}
             </Button>
           </Link> */}
-          <VoteButton site={site} />
+          {/* <VoteButton site={site} /> */}
         </div>
       </div>
     </div>
