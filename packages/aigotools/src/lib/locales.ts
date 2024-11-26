@@ -1,3 +1,4 @@
+import { Pathnames } from "next-intl/navigation";
 export const Languages = [
   {
     lang: "en",
@@ -49,4 +50,7 @@ export const Languages = [
   },
 ];
 
+export const pathnames = {
+  "/": "/",
+} satisfies Pathnames<typeof AvailableLocales>;
 export const AvailableLocales = Languages.map((l) => l.lang);
