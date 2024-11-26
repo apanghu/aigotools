@@ -3,7 +3,7 @@ import { NextIntlClientProvider } from "next-intl";
 import { getMessages, getTranslations } from "next-intl/server";
 import { NextUIProvider } from "@nextui-org/react";
 import { ThemeProvider } from "next-themes";
-import { ClerkProvider } from "@clerk/nextjs";
+//import { ClerkProvider } from "@clerk/nextjs";
 
 import ThemeToastContainer from "@/components/common/theme-toast-container";
 import { AppConfig } from "@/lib/config";
@@ -44,21 +44,21 @@ export default async function LocaleLayout({
   const messages = await getMessages();
 
   return (
-    <ClerkProvider>
-      <html lang={locale}>
-        <body>
-          <main className="text-primary">
-            <NextIntlClientProvider messages={messages}>
-              <NextUIProvider aria-disabled>
-                <ThemeProvider attribute="class">
-                  <UseQueryProvider> {children}</UseQueryProvider>
-                  <ThemeToastContainer />
-                </ThemeProvider>
-              </NextUIProvider>
-            </NextIntlClientProvider>
-          </main>
-        </body>
-      </html>
-    </ClerkProvider>
+    // <ClerkProvider>
+    <html lang={locale}>
+      <body>
+        <main className="text-primary">
+          <NextIntlClientProvider messages={messages}>
+            <NextUIProvider aria-disabled>
+              <ThemeProvider attribute="class">
+                <UseQueryProvider> {children}</UseQueryProvider>
+                <ThemeToastContainer />
+              </ThemeProvider>
+            </NextUIProvider>
+          </NextIntlClientProvider>
+        </main>
+      </body>
+    </html>
+    // </ClerkProvider>
   );
 }

@@ -2,7 +2,7 @@
 import { useState } from "react";
 import { useTranslations, useLocale } from "next-intl";
 import clsx from "clsx";
-import { useAuth, useUser } from "@clerk/nextjs";
+//import { useAuth, useUser } from "@clerk/nextjs";
 import { Button } from "@nextui-org/react";
 
 import Container from "./container";
@@ -10,7 +10,6 @@ import Logo from "./logo";
 import { ThemeSwitcher } from "./theme-switcher";
 import LanguageSwitcher from "./language-switcher";
 
-import { AppConfig } from "@/lib/config";
 import { Link } from "@/navigation";
 import LoadingModal from "@/components/common/LoadingModal";
 import MobileNav from "@/components/common/MobileNav";
@@ -19,11 +18,11 @@ export default function Header({ className }: { className?: string }) {
 
   const locale = useLocale();
 
-  const user = useUser();
-  const { signOut } = useAuth();
+  // const user = useUser();
+  // const { signOut } = useAuth();
 
-  const isManager =
-    user.user?.id && AppConfig.manageUsers.includes(user.user.id);
+  // const isManager =
+  //   user.user?.id && AppConfig.manageUsers.includes(user.user.id);
 
   const forceRedirectUrl =
     typeof window === "undefined"
