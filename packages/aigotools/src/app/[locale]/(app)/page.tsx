@@ -4,14 +4,15 @@ import Container from "@/components/common/container";
 import Hero from "@/components/index/hero";
 import Search from "@/components/index/search";
 import SiteGroup from "@/components/common/sites-group";
-import { getFeaturedSites, getLatestSites } from "@/lib/actions";
+import { getFeaturedSites, getLatestSites, getHotSites } from "@/lib/actions";
 import FAQ from "@/components/common/faq";
 import PromoTop from "@/components/common/PromoTop";
 export default async function Page() {
   const t = await getTranslations("index");
-  const [featuredSites, latestSites] = await Promise.all([
+  const [featuredSites, latestSites, hotSites] = await Promise.all([
     getFeaturedSites(),
     getLatestSites(),
+    getHotSites(),
   ]);
 
   return (
@@ -19,7 +20,7 @@ export default async function Page() {
       <Container>
         <Hero />
         <Search />
-        <PromoTop sites={featuredSites} />
+        <PromoTop sites={hotSites} />
         <SiteGroup id="featured" sites={featuredSites} title={t("featured")} />
         <SiteGroup id="latest" sites={latestSites} title={t("latest")} />
         <FAQ />

@@ -241,6 +241,25 @@ export async function getLatestSites(size = 12) {
   }
 }
 
+export async function getHotSites(size = 20) {
+  try {
+    await dbConnect();
+
+    const sites = await SiteModel.find({
+      state: SiteState.published,
+    })
+      .sort({ voteCount: -1 })
+      .limit(size)
+      .populate("categories");
+
+    return sites.map(siteToObject).map(pickCategoryName);
+  } catch (error) {
+    console.log("Get latest sites", error);
+
+    return [];
+  }
+}
+
 export async function submitReview(name: string, url: string) {
   try {
     const user = await currentUser();

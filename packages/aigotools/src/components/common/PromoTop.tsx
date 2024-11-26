@@ -69,7 +69,7 @@ export default function PromoTop({ sites }: { sites: Array<Site> }) {
                     href={item.url}
                     title={item.name}
                     onClick={() => {
-                      router.push(`/search?s=${encodeURIComponent(item.name)}`);
+                      router.push(`/s/${encodeURIComponent(item.siteKey)}`);
                     }}
                   >
                     <Image
