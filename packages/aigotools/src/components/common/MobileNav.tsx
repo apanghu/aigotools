@@ -2,6 +2,7 @@
 
 import { Dialog, Transition } from "@headlessui/react";
 import { Fragment, useState } from "react";
+import { useTranslations, useLocale } from "next-intl";
 
 import Link from "./Link";
 
@@ -9,7 +10,8 @@ import headerNavLinks from "@/data/headerNavLinks";
 import LoadingModal from "@/components/common/LoadingModal";
 const MobileNav = () => {
   const [navShow, setNavShow] = useState(false);
-
+  const locale = useLocale();
+  const t = useTranslations("header");
   const onToggleNav = () => {
     setNavShow((status) => {
       if (status) {
@@ -89,11 +91,11 @@ const MobileNav = () => {
                         <div key={link.title} className="px-12 py-4">
                           <Link
                             className="text-2xl font-bold tracking-widest text-gray-900 hover:text-primary-500 dark:text-gray-100 dark:hover:text-primary-400"
-                            href={`${link.href}`}
+                            href={`${locale}${link.href}`}
                             onClick={onToggleNav}
                           >
                             {/* 根据mainNav是否找到匹配的元素来显示标题 */}
-                            {link.title}
+                            {t(link.title.toLowerCase())}
                           </Link>
                         </div>
                       );
