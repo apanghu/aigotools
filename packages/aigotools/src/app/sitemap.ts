@@ -6,7 +6,7 @@ import { SiteState } from "@/lib/constants";
 import { AvailableLocales } from "@/lib/locales";
 import { AppConfig } from "@/lib/config";
 
-const perSitemapCount = 2000;
+const perSitemapCount = 500;
 
 export async function generateSitemaps() {
   await dbConnect();
