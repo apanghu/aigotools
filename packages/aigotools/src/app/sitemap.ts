@@ -98,3 +98,13 @@ export default async function sitemap({ id }: { id: number }) {
 
   return sitemapData;
 }
+
+// 汇总 sitemap-index 生成
+export async function sitemapIndex() {
+  const sitemaps = await generateSitemaps();
+
+  return sitemaps.map(({ id }) => ({
+    url: `${AppConfig.siteUrl}/sitemap/${id}.xml`,
+    lastModified: new Date(),
+  }));
+}
