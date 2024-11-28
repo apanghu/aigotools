@@ -1,7 +1,7 @@
 "use client";
 
 import React, { useState, useRef } from "react";
-
+import { Image } from "@nextui-org/react";
 export default function IframeEmbed({
   src,
   title,
@@ -52,7 +52,7 @@ export default function IframeEmbed({
             onMouseEnter={() => setIsHovered(true)}
             onMouseLeave={() => setIsHovered(false)}
           >
-            <img
+            <Image
               alt={title}
               className="w-full h-full object-cover"
               src={iconImage}
@@ -72,6 +72,15 @@ export default function IframeEmbed({
           >
             {buttonText}
           </button>
+          {/* <div className="absolute top-2 left-2 z-10 text-white">
+            <span data-tooltip="Works on desktop PCs and laptops">
+              <Image
+                alt="Desktop Icon"
+                className="w-8 h-8" // You can adjust size as needed
+                src="https://gamaverse.com/i/i/desktop.svg"
+              />
+            </span>
+          </div> */}
         </div>
       )}
     </div>

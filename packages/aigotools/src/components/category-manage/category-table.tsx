@@ -91,8 +91,6 @@ export default function CategoryTable() {
     }, {} as Record<string, string>);
   }, [allTopCategories]);
 
-  console.log(topCategoryNameMap);
-
   return (
     <div className="mt-4 relative py-4">
       <div

@@ -9,6 +9,7 @@ function GameComponent({ gametype, site }: { gametype: string; site: Site }) {
   const renderGame = () => {
     switch (gametype) {
       case "iframe":
+      case "preloader":
         return (
           <IframeEmbed
             buttonText="Play the game"
@@ -17,18 +18,10 @@ function GameComponent({ gametype, site }: { gametype: string; site: Site }) {
             title={site.name}
           />
         );
-      case "ruffle":
+      case "swf":
         return <RufflePlayer height={600} src={site.url} width={800} />;
       default:
-        // return <p>Unsupported game type</p>;
-        return (
-          <IframeEmbed
-            buttonText="Play the game"
-            iconImage={site.descriptionIcon}
-            src={site.url}
-            title={site.name}
-          />
-        );
+        return <p>Unsupported game type</p>;
     }
   };
 

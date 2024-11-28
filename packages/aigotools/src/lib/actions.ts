@@ -125,13 +125,12 @@ export async function searchSites({
 
     const [sites, count] = await Promise.all([findTask, countTask]);
 
-    console.log({ query, sites, count });
-
     return {
       page,
       sites: [...(page === 1 ? regFindSites : []), ...sites]
         .map(siteToObject)
         .map(pickCategoryName),
+      totalCount: count, // 返回总条数
       hasNext: count > page * pageSize,
     };
   } catch (error) {
