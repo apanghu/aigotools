@@ -15,26 +15,61 @@ export default function Footer({ className }: { className?: string }) {
   return (
     <Container className={clsx(className, "pb-12")}>
       <Divider className="mt-16 sm:mt-28 mb-6" />
-      <div className="flex flex-col sm:flex-row">
-        <div className="flex-1 flex flex-col">
+      <div className="grid grid-cols-1 sm:grid-cols-3 gap-8">
+        {/* Left Side: Logo and Slogan */}
+        <div className="flex flex-col">
           <Logo className="text-[28px] mb-4" />
-          <div className="font-normal text-primary text-tiny sm:text-sm mb-2">
+          <div className="font-medium text-primary text-sm sm:text-base mb-2">
             {t("slogan")}.
           </div>
-
-          <div className="font-normal flex items-center gap-2 text-primary text-tiny sm:text-sm">
-            @2024 {AppConfig.siteName}.All rights reserved.
+          <div className="font-normal text-primary text-xs sm:text-sm">
+            @2024 {AppConfig.siteName}. All rights reserved.
           </div>
         </div>
-        <div className="flex-1 flex justify-start sm:justify-end mt-6 sm:mt-0 font-semibold text-primary text-sm sm:text-base">
-          <div className="flex-grow-0 flex-shrink-0 basis-40 flex flex-col gap-2 text-left sm:text-right">
-            <Link href={"https://gamenav.org"} target="_blank">
-              GameNav
-            </Link>
-            <Link href={"/#featured"}>{t("featured")}</Link>
-            <Link href={"/#latest"}>{t("latestSubmit")}</Link>
-            <Link href={"/submit"}>{t("submitATool")}</Link>
+
+        {/* Middle Column: Sitemap Links */}
+        <div className="flex flex-col space-y-2">
+          <div className="font-semibold text-primary text-lg">
+            {t("usefulLinks")}
           </div>
+          <Link
+            className="text-sm text-primary hover:text-accent"
+            href="/sitemap-index"
+          >
+            {t("sitemap")}
+          </Link>
+          <Link
+            className="text-sm text-primary hover:text-accent"
+            href={"https://gamenav.org"}
+            target="_blank"
+          >
+            GameNav
+          </Link>
+          <Link
+            className="text-sm text-primary hover:text-accent"
+            href={"/#featured"}
+          >
+            {t("featured")}
+          </Link>
+          <Link
+            className="text-sm text-primary hover:text-accent"
+            href={"/#latest"}
+          >
+            {t("latestSubmit")}
+          </Link>
+        </div>
+
+        {/* Right Column: Additional Links */}
+        <div className="flex flex-col space-y-2 sm:text-right">
+          <div className="font-semibold text-primary text-lg">
+            {t("getInTouch")}
+          </div>
+          <Link
+            className="text-sm text-primary hover:text-accent"
+            href={"/submit"}
+          >
+            {t("submitATool")}
+          </Link>
         </div>
       </div>
     </Container>
