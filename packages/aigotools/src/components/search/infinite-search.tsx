@@ -1,5 +1,4 @@
 "use client";
-import { toast } from "react-toastify";
 import { Spinner } from "@nextui-org/react";
 import { useTranslations } from "next-intl";
 import { useSearchParams, useRouter } from "next/navigation";
@@ -26,12 +25,7 @@ export default function InfiniteSearch() {
     queryFn: async () => {
       return await searchSites({ search, page: currentPage, category });
     },
-    onError: (error) => {
-      console.error(error);
-      toast.error(t("loadFailed"));
-    },
-    refetchOnWindowFocus: false,
-    keepPreviousData: true,
+    initialData: null,
   });
 
   // const {
