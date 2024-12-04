@@ -28,7 +28,6 @@ function GameComponent({ gametype, site }: { gametype: string; site: Site }) {
   return (
     <div className="mt-10">
       {renderGame()}
-      {/* 在移动端显示提示文本 */}
       <p className="mt-4 text-center text-sm sm:hidden">
         Tap on the picture above to launch the game.
       </p>

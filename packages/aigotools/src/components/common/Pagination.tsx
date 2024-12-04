@@ -13,6 +13,34 @@ export default function Pagination({
   pageSize = 5,
   onPageChange,
 }: PaginationProps) {
+  // // 计算页码数组
+  // const pagination = useMemo(() => {
+  //   const pages: (number | "...")[] = [];
+  //   const half = Math.floor(pageSize / 2);
+
+  //   if (totalPages <= pageSize) {
+  //     // 总页数少于等于显示数量时，显示所有页
+  //     for (let i = 1; i <= totalPages; i++) pages.push(i);
+  //   } else if (currentPage <= half + 1) {
+  //     // 当前页接近开头时，不显示左边省略号
+  //     for (let i = 1; i <= pageSize; i++) pages.push(i);
+  //     pages.push("...", totalPages);
+  //   } else if (currentPage > totalPages - half) {
+  //     // 当前页接近结尾时，不显示右边省略号
+  //     pages.push(1, "...");
+  //     for (let i = totalPages - pageSize + 1; i <= totalPages; i++)
+  //       pages.push(i);
+  //   } else {
+  //     // 当前页在中间时，两边都有省略号
+  //     pages.push(1, "...");
+  //     for (let i = currentPage - half; i <= currentPage + half; i++)
+  //       pages.push(i);
+  //     pages.push("...", totalPages);
+  //   }
+
+  //   return pages;
+  // }, [currentPage, totalPages, pageSize]);
+
   // 计算页码数组
   const pagination = useMemo(() => {
     const pages: (number | "...")[] = [];
@@ -24,18 +52,18 @@ export default function Pagination({
     } else if (currentPage <= half + 1) {
       // 当前页接近开头时，不显示左边省略号
       for (let i = 1; i <= pageSize; i++) pages.push(i);
-      pages.push("...", totalPages);
-    } else if (currentPage > totalPages - half) {
+      if (pageSize < totalPages) pages.push("...", totalPages);
+    } else if (currentPage >= totalPages - half) {
       // 当前页接近结尾时，不显示右边省略号
       pages.push(1, "...");
       for (let i = totalPages - pageSize + 1; i <= totalPages; i++)
         pages.push(i);
     } else {
-      // 当前页在中间时，两边都有省略号
-      pages.push(1, "...");
+      // 当前页在中间时，不显示左边省略号，只显示右边省略号
+      pages.push(1);
       for (let i = currentPage - half; i <= currentPage + half; i++)
         pages.push(i);
-      pages.push("...", totalPages);
+      if (currentPage + half < totalPages) pages.push("...", totalPages);
     }
 
     return pages;
